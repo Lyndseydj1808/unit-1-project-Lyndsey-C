@@ -26,6 +26,7 @@ export default function ParentDashboard({ onUpdate }) {
         so our creatures can greet them by name and tailor the experience to
         their age.
       </p>
+      {/*form for parents to add name and age */}
       <form onSubmit={handleSubmit}>
         <input
           type="text"
