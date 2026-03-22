@@ -1,3 +1,4 @@
+//import all creature images
 import unicornHappy from '../../assets/images/creatures/unicorn-happy.png'
 import unicornSad from '../../assets/images/creatures/unicorn-sad.png'
 import unicornAngry from '../../assets/images/creatures/unicorn-angry.png'
@@ -15,7 +16,7 @@ import phoenixAngry from '../../assets/images/creatures/phoenix-angry.png'
 import phoenixExcited from '../../assets/images/creatures/phoenix-excited.png'
 import phoenixSad from '../../assets/images/creatures/phoenix-sad.png'
 
-
+//array of data for feeling friends questions
 export const feelingFriendsQuestions = [
     {
         id: 1,

@@ -1,18 +1,18 @@
 import React, { useState } from "react";
 import BackButton from "../components/BackButton";
-
+import "./ParentDashboard.css";
 export default function ParentDashboard({ onUpdate }) {
-
-    const [inputName, setInputName] = useState("");
-    const [inputAge, setInputAge] = useState("");
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        onUpdate(inputName, inputAge);
-    }
+  const [inputName, setInputName] = useState("");
+  const [inputAge, setInputAge] = useState("");
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    onUpdate(inputName, inputAge);
+  };
   return (
-    <div>
-      <h1>Hi Parents! Welcome to Little Creatures Feel Big!</h1>
-      <p>
+    <div className="parent-dashboard-container">
+      <h1>Hi Parents!</h1>
+      <h2> Welcome to Little Creatures Feel Big!</h2>
+      <p className="dashboard-description">
         We created this game to turn emotional learning into a joyful adventure
         for your little ones. As parents, we know that big emotions can feel
         overwhelming for children. Research shows that developing emotional
@@ -27,20 +27,24 @@ export default function ParentDashboard({ onUpdate }) {
         their age.
       </p>
       {/*form for parents to add name and age */}
-      <form onSubmit={handleSubmit}>
+      <form className="parent-form" onSubmit={handleSubmit}>
         <input
+          className="parent-form-input"
           type="text"
           value={inputName}
           onChange={(event) => setInputName(event.target.value)}
           placeholder="Enter child's name"
         />
         <input
-        type="number"
-        value={inputAge}
-        onChange= {(event) => setInputAge(event.target.value)}
-        placeholder= "Enter child's age"
+          className="parent-form-input"
+          type="number"
+          value={inputAge}
+          onChange={(event) => setInputAge(event.target.value)}
+          placeholder="Enter child's age"
         />
-        <button type="submit">Save</button>
+        <button className="game-button save-button" type="submit">
+          Save
+        </button>
       </form>
       <BackButton />
     </div>
