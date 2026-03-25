@@ -1,0 +1,83 @@
+.game-title {
+    color: var(--purple);
+    font-family: nunito, sans-serif;
+    font-size: 2rem;
+}
+
+.game-question {
+    color: var(--text-dark);
+    font-family: nunito, sans-serif;
+    font-size: 1.5rem;
+}
+
+.creature-image {
+    width: 40%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 12px;
+}
+
+.option-button {
+    background-color: var(--bg-lavender);
+    color: var(--text-dark);
+    padding: 12px 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 600;
+    display: inline-block;
+    cursor: pointer;
+    margin: 8px;
+}
+
+.option-button:hover {
+    background-color: var(--pink);
+}
+
+.feedback {
+    color: var(--text-dark);
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.next-question-button {
+    background-color: var(--blue);
+    color: white;
+    padding: 12px 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: 600;
+    display: inline-block;
+    cursor: pointer;
+    margin: 12px;
+}
+
+.next-question-button:hover {
+    background-color: var(--green);
+}
+
+.end-game-feedback {
+    color: var(--blue);
+    font-size: 32px;
+}
+
+.score-feedback {
+    color: var(--text-dark);
+    font-size: 24px;
+
+}
+
+.play-again-button {
+    background-color: var(--purple);
+    color: var(--teal);
+    padding: 12px 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: 600;
+    display: inline-block;
+    cursor: pointer;
+    margin: 12px;
+
+}

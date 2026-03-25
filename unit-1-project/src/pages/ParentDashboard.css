@@ -37,15 +37,26 @@
 }
 
 .parent-form-input:focus {
-    border-color: var(--pink); /*changes border color when clicked*/
-    background-color: var(--bg-lavender); /*changes background color when clicked*/
+  border-color: var(--pink); /*changes border color when clicked*/
+  background-color: var(
+    --bg-lavender
+  ); /*changes background color when clicked*/
 }
 
-.game-button.save-button {
+.save-button {
   background-color: var(--blue);
+  color: white;
+  padding: 12px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: 600;
+  display: inline-block;
+  cursor: pointer;
+  margin: 12px;
 }
 
-.game-button.save-button:hover {
+.save-button:hover {
   background-color: var(--bubblegum);
   color: var(--text-dark);
 }

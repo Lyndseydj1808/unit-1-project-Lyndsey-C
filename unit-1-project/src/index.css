@@ -24,20 +24,20 @@ body {
     cursor: default;
 }
 
-.game-button {
+.back-button {
     background-color: var(--purple);
     color: white;
-    padding: 12px 24px;
-    border-radius: 24px;
+    padding: 12px 12px;
+    border-radius: 8px;
     text-decoration: none;
-    font-size: 1.2rem;
-    font-weight: 700;
+    font-size: 24px;
+    font-weight: 600;
     display: inline-block;
     cursor: pointer;
     margin: 12px;
 }
 
-.game-button:hover {
+.back-button:hover {
   background-color: var(--bubblegum);
   color: var(--text-dark);
 }

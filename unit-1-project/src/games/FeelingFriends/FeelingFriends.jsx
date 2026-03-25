@@ -2,6 +2,7 @@ import React from "react";
 import BackButton from "../../components/BackButton";
 import { feelingFriendsQuestions } from "./FeelingFriendsQuestions";
 import { useState } from "react";
+import "./FeelingFriends.css"
 
 const shuffledQuestions = [...feelingFriendsQuestions].sort(
   () => Math.random() - 0.5,
@@ -17,12 +18,13 @@ export default function FeelingFriends() {
     if (currentIndex >= shuffledQuestions.length) {
     return (
       <div>
-        <h2>Congratulations! You finished the game!</h2>
-        <p>
+        <h2 className="end-game-feedback">Congratulations! You finished the game!</h2>
+        <p className="score-feedback">
           You got {score} out of {shuffledQuestions.length} questions right!
           Great job!
         </p>
         <button
+        className="play-again-button"
           onClick={() => {
             (setCurrentIndex(0), setScore(0), setFeedback(""));
           }}
@@ -49,25 +51,35 @@ export default function FeelingFriends() {
     setFeedback("");
   }
 
+  const feelingEmojis = {
+    "Happy": "😊",
+    "Sad": "😢",
+    "Angry": "😠",
+    "Scared": "😨",
+    "Excited": "🤩",
+    "Disappointed": "😞"
+}
+
   const options = currentQuestion.options.map((option) => (
-    <button key={option} onClick={() => handleAnswer(option)}>
-      {option}
+    <button key={option} className="option-button" onClick={() => handleAnswer(option)}>
+      {option} {feelingEmojis[option]}
     </button>
   ));
 
   return (
     <div>
-      <h1>Feeling Friends!</h1>
-      <h2>
+      <h1 className="game-title">Feeling Friends!</h1>
+      <h2 className="game-question">
         How do you think {currentQuestion.name} the {currentQuestion.creature}{" "}
         is feeling today?
       </h2>
       <img
+        className="creature-image"
         src={currentQuestion.image}
         alt={`Image of a ${currentQuestion.creature} generated using Nano Banana (AI)`}
       />
-      {feedback && <div>{feedback}</div>} {/*If feedback is truthy, show this*/}
-      {feedback && <button onClick={nextQuestion}>Next Question</button>}{" "}
+      {feedback && <div className="feedback">{feedback}</div>} {/*If feedback is truthy, show this*/}
+      {feedback && <button className="next-question-button" onClick={nextQuestion}>Next Question</button>}{" "}
       {/*Shows next question button if feedback exists */}
       {!feedback && <div>{options}</div>}{" "}
       {/*only shows options when feedback does not exist */}

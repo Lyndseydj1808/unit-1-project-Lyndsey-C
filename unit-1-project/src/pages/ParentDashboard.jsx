@@ -42,7 +42,7 @@ export default function ParentDashboard({ onUpdate }) {
           onChange={(event) => setInputAge(event.target.value)}
           placeholder="Enter child's age"
         />
-        <button className="game-button save-button" type="submit">
+        <button className="save-button" type="submit">
           Save
         </button>
       </form>
