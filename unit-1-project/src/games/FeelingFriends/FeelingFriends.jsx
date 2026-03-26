@@ -3,6 +3,7 @@ import BackButton from "../../components/BackButton";
 import { feelingFriendsQuestions } from "./FeelingFriendsQuestions";
 import { useState } from "react";
 import "./FeelingFriends.css"
+import HomeButton from "../../components/HomeButton";
 
 const shuffledQuestions = [...feelingFriendsQuestions].sort(
   () => Math.random() - 0.5,
@@ -31,7 +32,7 @@ export default function FeelingFriends() {
         >
           Play Again!
         </button>
-        <button>****Add homepage button****</button>
+        <HomeButton/>
       </div>
     );
   }
