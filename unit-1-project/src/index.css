@@ -1,4 +1,4 @@
-{/*stores colors as variables to use for styling...access them using color: var(--purple)*/}
+/*stores colors as variables to use for styling...access them using color: var(--purple)*/
 :root {
   --purple: #B44FD4;
   --pink: #E84FA0;
@@ -30,7 +30,7 @@ body {
     padding: 12px 12px;
     border-radius: 8px;
     text-decoration: none;
-    font-size: 24px;
+    font-size: clamp(0.9rem, 2vw, 1.5rem);
     font-weight: 600;
     display: inline-block;
     cursor: pointer;
@@ -40,4 +40,16 @@ body {
 .back-button:hover {
   background-color: var(--bubblegum);
   color: var(--text-dark);
+}
+
+h1 {
+    font-size: clamp(1.5rem, 4vw, 3rem);
+}
+
+h2 {
+    font-size: clamp(1rem, 3vw, 2rem);
+}
+
+p {
+    font-size: clamp(0.875rem, 2vw, 1rem);
 }

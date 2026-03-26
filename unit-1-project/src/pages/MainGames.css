@@ -1,5 +1,11 @@
-.game-card {
-  text-decoration: none;
+.main-games-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    gap: 24px;
+    padding: 20px;
 }
 
 .games-title {
@@ -22,4 +28,12 @@ p {
   display: block; /* needed for margin auto to work on links */
   margin: 0 auto; /* centers horizontally */
   padding: 12px 12px;
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+    .games-title {
+        justify-content: flex-start;
+        padding-top: 60px;
+    }
 }

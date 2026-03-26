@@ -17,7 +17,7 @@ export default function FeelingFriends() {
 
     if (currentIndex >= shuffledQuestions.length) {
     return (
-      <div>
+      <div className="end-game-container">
         <h2 className="end-game-feedback">Congratulations! You finished the game!</h2>
         <p className="score-feedback">
           You got {score} out of {shuffledQuestions.length} questions right!
@@ -31,6 +31,7 @@ export default function FeelingFriends() {
         >
           Play Again!
         </button>
+        <button>****Add homepage button****</button>
       </div>
     );
   }
@@ -67,7 +68,7 @@ export default function FeelingFriends() {
   ));
 
   return (
-    <div>
+    <div className="feeling-friends-container">
       <h1 className="game-title">Feeling Friends!</h1>
       <h2 className="game-question">
         How do you think {currentQuestion.name} the {currentQuestion.creature}{" "}
