@@ -8,7 +8,7 @@ export default function BackButton() {
   return (
 
     <div>
-      <button onClick={() => navigate(-1)}>Back</button>
+      <button className="back-button" onClick={() => navigate(-1)}>Back</button>
     </div>
   )
 }

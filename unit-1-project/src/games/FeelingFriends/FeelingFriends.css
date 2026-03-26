@@ -1,0 +1,110 @@
+.feeling-friends-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  gap: 24px;
+  padding: 20px;
+}
+
+.game-title {
+  color: var(--purple);
+  font-family: nunito, sans-serif;
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+.game-question {
+  color: var(--text-dark);
+  font-family: nunito, sans-serif;
+  font-size: 1.5rem;
+  margin-top: 0;
+}
+
+.creature-image {
+  width: clamp(150px, 40vw, 350px);
+  max-width: 500px;
+  height: auto;
+  border-radius: 12px;
+}
+
+.option-button {
+  background-color: var(--bg-lavender);
+  color: var(--text-dark);
+  padding: clamp(8px, 2vw, 16px) clamp(16px, 3vw, 32px);
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: clamp(0.9rem, 2vw, 1.2rem);
+  font-weight: 600;
+  display: inline-block;
+  cursor: pointer;
+  margin: 8px;
+}
+
+.option-button:hover {
+  background-color: var(--pink);
+}
+
+.feedback {
+  color: var(--text-dark);
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.next-question-button {
+  background-color: var(--blue);
+  color: white;
+  padding: 12px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: 600;
+  display: inline-block;
+  cursor: pointer;
+  margin: 12px;
+}
+
+.next-question-button:hover {
+  background-color: var(--green);
+}
+
+.end-game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  gap: 24px;
+  padding: 20px;
+}
+
+.end-game-feedback {
+  color: var(--blue);
+  font-size: 32px;
+}
+
+.score-feedback {
+  color: var(--text-dark);
+  font-size: 24px;
+}
+
+.play-again-button {
+  background-color: var(--purple);
+  color: var(--teal);
+  padding: 12px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: 600;
+  display: inline-block;
+  cursor: pointer;
+  margin: 12px;
+}
+
+@media (max-width: 768px) {
+  .creature-image {
+    max-width: 400px;
+    max-height: auto;
+  }
+}

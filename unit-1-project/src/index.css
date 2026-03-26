@@ -1,0 +1,55 @@
+/*stores colors as variables to use for styling...access them using color: var(--purple)*/
+:root {
+  --purple: #B44FD4;
+  --pink: #E84FA0;
+  --teal: #2BBCD4;
+  --blue: #5B6FE8;
+  --yellow: #FFD93D;
+  --orange: #FF7043;
+  --green: #4DD97A;
+  --bubblegum: #FF85C2;
+  --bg-lavender: #F5EEFF;
+  --bg-sky: #E0F9FF;
+  --text-dark: #3D2060;
+}
+
+body {
+    background-color: var(--bg-sky);
+    font-size: 16px;
+    font-family: nunito, sans-serif;
+    text-align: center;
+    color: var(--text-dark);
+    margin: 0;
+    padding: 0;
+    cursor: default;
+}
+
+.back-button {
+    background-color: var(--purple);
+    color: white;
+    padding: 12px 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: clamp(0.9rem, 2vw, 1.5rem);
+    font-weight: 600;
+    display: inline-block;
+    cursor: pointer;
+    margin: 12px;
+}
+
+.back-button:hover {
+  background-color: var(--bubblegum);
+  color: var(--text-dark);
+}
+
+h1 {
+    font-size: clamp(1.5rem, 4vw, 3rem);
+}
+
+h2 {
+    font-size: clamp(1rem, 3vw, 2rem);
+}
+
+p {
+    font-size: clamp(0.875rem, 2vw, 1rem);
+}
