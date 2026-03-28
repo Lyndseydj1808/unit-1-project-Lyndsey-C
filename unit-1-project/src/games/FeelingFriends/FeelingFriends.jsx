@@ -1,6 +1,6 @@
 import React from "react";
 import BackButton from "../../components/BackButton";
-import { feelingFriendsQuestions } from "./FeelingFriendsQuestions";
+import { feelingFriendsQuestions } from "./feelingFriendsQuestions";
 import { useState } from "react";
 import "./FeelingFriends.css"
 import HomeButton from "../../components/HomeButton";
