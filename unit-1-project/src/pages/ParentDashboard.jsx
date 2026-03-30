@@ -11,9 +11,9 @@ export default function ParentDashboard({ onUpdate, childName }) {
 
     const age = Number(inputAge);
     if (!inputName || !inputAge) {
-      setFormValidationFeedback("Please enter name and age.");
+      setFormValidationFeedback("⚠️ Please enter name and age.");
     } else if (age >= 18 || age <= 0) {
-      setFormValidationFeedback("Please enter a valid age.");
+      setFormValidationFeedback("⚠️ Please enter a valid age.");
     } else {
       onUpdate(inputName, inputAge);
       setFormSubmit(true);
@@ -67,7 +67,7 @@ export default function ParentDashboard({ onUpdate, childName }) {
       )}
 
       {formSubmit && (
-        <div className="formSubmitFeedback">{`Thank you! We hope ${childName} has so much fun exploring Little Creatures Feel Big!`}</div>
+        <div className="form-submit-feedback">{`Thank you! We hope ${childName} has so much fun exploring Little Creatures Feel Big!`}</div>
       )}
 
       <BackButton />
