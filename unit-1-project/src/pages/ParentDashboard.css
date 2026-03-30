@@ -1,11 +1,11 @@
 .parent-dashboard-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    gap: 24px;
-    padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  gap: 24px;
+  padding: 20px;
 }
 
 .parent-dashboard-container h2 {
@@ -64,4 +64,30 @@
 .save-button:hover {
   background-color: var(--bubblegum);
   color: var(--text-dark);
+}
+
+.form-submit-feedback {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: white;
+  font-family: "Nunito", sans-serif;
+  font-size: 1 rem;
+  background-color: var(--purple);
+  border-radius: 24px;
+  max-width: 40%;
+  padding: 12px 24px;
+}
+
+.form-validation-feedback {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: white;
+  font-family: "Nunito", sans-serif;
+  font-size: 1rem;
+  background-color: var(--pink);
+  border-radius: 24px;
+  max-width: 40%;
+  padding: 12px 24px;
 }
