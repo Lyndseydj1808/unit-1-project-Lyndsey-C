@@ -2,37 +2,43 @@ import React from "react";
 import BackButton from "../../components/BackButton";
 import { feelingFriendsQuestions } from "./feelingFriendsQuestions";
 import { useState } from "react";
-import "./FeelingFriends.css"
+import "./FeelingFriends.css";
 import HomeButton from "../../components/HomeButton";
 
 const shuffledQuestions = [...feelingFriendsQuestions].sort(
   () => Math.random() - 0.5,
 ); //creates new array of shuffled questions
 
-export default function FeelingFriends() {
+export default function FeelingFriends({ childName }) {
   const [score, setScore] = useState(0);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [feedback, setFeedback] = useState("");
 
   const currentQuestion = shuffledQuestions[currentIndex];
 
-    if (currentIndex >= shuffledQuestions.length) {
+  if (currentIndex >= shuffledQuestions.length) {
     return (
       <div className="end-game-container">
-        <h2 className="end-game-feedback">Congratulations! You finished the game!</h2>
+        <h2 className="end-game-feedback">
+          {childName
+            ? `Congratulations ${childName}! You finished the game!`
+            : `Congratulations! You finished the game!`}
+        </h2>
         <p className="score-feedback">
           You got {score} out of {shuffledQuestions.length} questions right!
           Great job!
         </p>
         <button
-        className="play-again-button"
+          className="play-again-button"
           onClick={() => {
-            (setCurrentIndex(0), setScore(0), setFeedback(""));
+            setCurrentIndex(0);
+            setScore(0);
+            setFeedback("");
           }}
         >
           Play Again!
         </button>
-        <HomeButton/>
+        <HomeButton />
       </div>
     );
   }
@@ -54,16 +60,20 @@ export default function FeelingFriends() {
   }
 
   const feelingEmojis = {
-    "Happy": "😊",
-    "Sad": "😢",
-    "Angry": "😠",
-    "Scared": "😨",
-    "Excited": "🤩",
-    "Disappointed": "😞"
-}
+    Happy: "😊",
+    Sad: "😢",
+    Angry: "😠",
+    Scared: "😨",
+    Excited: "🤩",
+    Disappointed: "😞",
+  };
 
   const options = currentQuestion.options.map((option) => (
-    <button key={option} className="option-button" onClick={() => handleAnswer(option)}>
+    <button
+      key={option}
+      className="option-button"
+      onClick={() => handleAnswer(option)}
+    >
       {option} {feelingEmojis[option]}
     </button>
   ));
@@ -73,15 +83,20 @@ export default function FeelingFriends() {
       <h1 className="game-title">Feeling Friends!</h1>
       <h2 className="game-question">
         How do you think {currentQuestion.name} the {currentQuestion.creature}{" "}
-        is feeling today?
+        is feeling right now?
       </h2>
       <img
         className="creature-image"
         src={currentQuestion.image}
         alt={`Image of a ${currentQuestion.creature} generated using Nano Banana (AI)`}
       />
-      {feedback && <div className="feedback">{feedback}</div>} {/*If feedback is truthy, show this*/}
-      {feedback && <button className="next-question-button" onClick={nextQuestion}>Next Question</button>}{" "}
+      {feedback && <div className="feedback">{feedback}</div>}{" "}
+      {/*If feedback is truthy, show this*/}
+      {feedback && (
+        <button className="next-question-button" onClick={nextQuestion}>
+          Next Question
+        </button>
+      )}{" "}
       {/*Shows next question button if feedback exists */}
       {!feedback && <div>{options}</div>}{" "}
       {/*only shows options when feedback does not exist */}
