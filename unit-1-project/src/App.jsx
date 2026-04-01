@@ -1,32 +1,46 @@
-import React, { useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
-import Home from './pages/Home';
-import About from './pages/About';
-import ParentDashboard from './pages/ParentDashboard';
-import FeelingFriends from './games/FeelingFriends/FeelingFriends';
-import MainGames from './pages/MainGames';
+import React, { useState } from "react";
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import ParentDashboard from "./pages/ParentDashboard";
+import FeelingFriends from "./games/FeelingFriends/FeelingFriends";
+import MainGames from "./pages/MainGames";
+import KindCreatures from "./games/KindCreatures/KindCreatures";
 
-function App () {
-
+function App() {
   const [childName, setChildName] = useState("");
   const [childAge, setChildAge] = useState("");
 
   const updateChild = (name, age) => {
     setChildName(name);
     setChildAge(age);
-  }
-   return (
-       <>
-           <Routes>
-            <Route path="/" element={<Home/>} />
-            <Route path="/mini-games" element={<MainGames childName={childName}/>} />
-            <Route path="/games/feeling-friends" element={<FeelingFriends/>} />
-            <Route path="/parent-dashboard" element={<ParentDashboard onUpdate={updateChild} childName={childName}/>}/>
-            <Route path="/about" element={<About/>}/>
-           </Routes>
-       </>
-   );
+  };
+  return (
+    <>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route
+          path="/mini-games"
+          element={<MainGames childName={childName} />}
+        />
+        <Route
+          path="/games/feeling-friends"
+          element={<FeelingFriends childName={childName} />}
+        />
+        <Route
+          path="/games/kind-creatures"
+          element={<KindCreatures childName={childName} />}
+        />
+        <Route
+          path="/parent-dashboard"
+          element={
+            <ParentDashboard onUpdate={updateChild} childName={childName} />
+          }
+        />
+        <Route path="/about" element={<About />} />
+      </Routes>
+    </>
+  );
 }
 
 export default App;
-
