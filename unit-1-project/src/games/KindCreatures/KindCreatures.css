@@ -8,20 +8,40 @@
   margin: 0 auto 20px auto;
   position: relative;
   margin-bottom: 20px;
+  font-size: 1.5rem;
 }
 
 .user-selection::after {
-  /*this creates the tail look for the text bubble*/
+  /*this creates the first and second cirles*/
   content: "";
   position: absolute;
-  bottom: -20px;
-  width: 0;
-  height: 0;
+  /*positions them below the bubble*/
+  top: 100%;
+  margin-top: 20px;
   left: 50%;
-  border-left: 15px solid transparent;
-  border-right: 15px solid transparent;
-  border-top: 15px solid rgb(from var(--bg-sky) r g b / 0.8);
+  transform: translateX(-50%);
+  /*size of the medium circle*/
+  width: 14px;
+  height: 14px;
+  /* This pushes the medium circle 35px below the bubble */
+  margin-top: 35px;
+  background: rgb(from var(--bg-sky) r g b / 0.8);
+  border-radius: 50%;
+  /* This 'box-shadow' creates the third, smallest circle! */
+  /* It's shifted 8px right and 20px down, 12px wide (14 - 2)*/
+  box-shadow: 8px 20px 0 -2px rgb(from var(--bg-sky) r g b / 0.8);
+}
+
+/* The largest circle connecting to the bubble */
+.user-selection::before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  margin-top: 5px;
   left: 50%;
-  transform: translateX(-50%) scale(1.1);
-  transition: 0.2s;
+  width: 22px;
+  height: 22px;
+  background: rgb(from var(--bg-sky) r g b / 0.8);
+  border-radius: 50%;
+  transform: translateX(-50%);
 }
