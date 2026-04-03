@@ -1,73 +1,84 @@
 /*stores colors as variables to use for styling...access them using color: var(--purple)*/
 :root {
-  --purple: #B44FD4;
-  --pink: #E84FA0;
-  --teal: #2BBCD4;
-  --blue: #5B6FE8;
-  --yellow: #FFD93D;
-  --orange: #FF7043;
-  --green: #4DD97A;
-  --bubblegum: #FF85C2;
-  --bg-lavender: #F5EEFF;
-  --bg-sky: #E0F9FF;
-  --text-dark: #3D2060;
+  --purple: #b44fd4;
+  --pink: #e84fa0;
+  --teal: #2bbcd4;
+  --blue: #5b6fe8;
+  --yellow: #ffd93d;
+  --orange: #ff7043;
+  --green: #4dd97a;
+  --bubblegum: #ff85c2;
+  --bg-lavender: #f5eeff;
+  --bg-sky: #e0f9ff;
+  --text-dark: #3d2060;
 }
 
 body {
-    background-color: var(--bg-sky);
-    font-size: 16px;
-    font-family: nunito, sans-serif;
-    text-align: center;
-    color: var(--text-dark);
-    margin: 0;
-    padding: 0;
-    cursor: default;
+  background: linear-gradient(
+    45deg,
+    var(--purple),
+    var(--blue),
+    var(--teal),
+    var(--green),
+    var(--yellow),
+    var(--orange),
+    var(--pink)
+  );
+  height: 100vh;
+  font-size: 16px;
+  font-family: nunito, sans-serif;
+  text-align: center;
+  color: var(--text-dark);
+  margin: 0;
+  padding: 0;
+  cursor: default;
 }
 
 .back-button {
-    background-color: var(--purple);
-    color: white;
-    padding: 12px 12px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-size: clamp(0.9rem, 2vw, 1.5rem);
-    font-weight: 600;
-    display: inline-block;
-    cursor: pointer;
-    margin: 12px;
+  background: rgb(from var(--text-dark) r g b / 0.7);
+  color: white;
+  padding: 12px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: clamp(0.9rem, 2vw, 1.5rem);
+  font-weight: 600;
+  display: inline-block;
+  cursor: pointer;
+  margin: 12px;
+  margin-top: 40px;
 }
 
 .back-button:hover {
-  background-color: var(--bubblegum);
-  color: var(--text-dark);
+  transform: scale(1.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .home-button {
-    background-color: var(--pink);
-    color: white;
-    padding: 12px 12px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-size: clamp(0.9rem, 2vw, 1.5rem);
-    font-weight: 600;
-    display: inline-block;
-    cursor: pointer;
-    margin: 12px;
+  background: rgb(from var(--purple) r g b / 0.7);
+  color: white;
+  padding: 12px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: clamp(0.9rem, 2vw, 1.5rem);
+  font-weight: 600;
+  display: inline-block;
+  cursor: pointer;
+  margin: 12px;
 }
 
 .home-button:hover {
-    background-color: var(--blue);
-    color: var(--text-dark);
+  transform: scale(1.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 h1 {
-    font-size: clamp(1.5rem, 4vw, 3rem);
+  font-size: clamp(1.5rem, 4vw, 3rem);
 }
 
 h2 {
-    font-size: clamp(1rem, 3vw, 2rem);
+  font-size: clamp(1rem, 3vw, 2rem);
 }
 
 p {
-    font-size: clamp(0.875rem, 2vw, 1rem);
+  font-size: clamp(0.875rem, 2vw, 1rem);
 }
