@@ -37,7 +37,7 @@ function App() {
             <ParentDashboard onUpdate={updateChild} childName={childName} />
           }
         />
-        <Route path="/about" element={<About />} />
+        <Route path="/about" element={<About childName={childName} />} />
       </Routes>
     </>
   );
