@@ -1,5 +1,7 @@
 .user-selection {
-  background: rgb(from var(--bg-sky) r g b / 0.8);
+  background: rgb(from var(--purple) r g b / 0.8);
+  color: var(--bg-sky);
+  font-family: 'Chewy', sans-serif;
   padding: 20px;
   max-width: 500px;
   text-align: center;
@@ -25,11 +27,11 @@
   height: 14px;
   /* This pushes the medium circle 35px below the bubble */
   margin-top: 35px;
-  background: rgb(from var(--bg-sky) r g b / 0.8);
+  background: rgb(from var(--purple) r g b / 0.8);
   border-radius: 50%;
   /* This 'box-shadow' creates the third, smallest circle! */
   /* It's shifted 8px right and 20px down, 12px wide (14 - 2)*/
-  box-shadow: 8px 20px 0 -2px rgb(from var(--bg-sky) r g b / 0.8);
+  box-shadow: 8px 20px 0 -2px rgb(from var(--purple) r g b / 0.8);
 }
 
 /* The largest circle connecting to the bubble */
@@ -41,7 +43,7 @@
   left: 50%;
   width: 22px;
   height: 22px;
-  background: rgb(from var(--bg-sky) r g b / 0.8);
+  background: rgb(from var(--purple) r g b / 0.8);
   border-radius: 50%;
   transform: translateX(-50%);
 }

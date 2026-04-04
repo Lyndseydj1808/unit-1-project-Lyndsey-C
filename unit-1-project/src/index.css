@@ -1,3 +1,5 @@
+@import url('https://googleapis.com');
+
 /*stores colors as variables to use for styling...access them using color: var(--purple)*/
 :root {
   --purple: #b44fd4;
