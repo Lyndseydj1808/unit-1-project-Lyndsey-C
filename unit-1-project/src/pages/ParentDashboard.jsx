@@ -29,14 +29,24 @@ export default function ParentDashboard({ onUpdate, childName }) {
         for your little ones. As a parent, I know that big emotions can feel
         overwhelming for children. Research shows that developing emotional
         intelligence at an early age is a superpower—it helps kids build
-        resilience, empathy, and better communication skills. In this world of
-        mini-games, your child will: Meet the Creatures: Friendly characters who
-        experience the same highs and lows kids do. Name That Feeling: Practice
-        identifying emotions through play. Build a Toolkit: Learn simple,
-        effective ways to regulate those "big feelings" in a safe, stress-free
-        environment. Let's get started! Please enter your child's details below
-        so the creatures can greet them by name and tailor the experience to
-        their age.
+        resilience, empathy, and better communication skills.
+        <br /> In this world of mini-games, your child will:
+      </p>
+      <ul className="dashboard-list">
+        <li>
+          ✨ Meet the Creatures: Friendly characters who experience the same
+          highs and lows kids do.
+        </li>
+        <li>
+          ✨ Name That Feeling: Practice identifying emotions through play.
+        </li>
+        <li>
+          ✨ Build a Toolkit: Practice self-kindness and body confidence in a safe, stress-free environment.
+        </li>
+      </ul>
+      <p className="dashboard-description">
+        Let's get started! Please enter your child's details below so the
+        creatures can greet them by name and tailor the experience to their age.
       </p>
       {/*form for parents to add name and age */}
       {formValidationFeedback && (

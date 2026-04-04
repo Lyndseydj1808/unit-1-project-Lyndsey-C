@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { creaturesArray } from "./creaturesData";
 import HomeButton from "../../components/HomeButton";
 import BackButton from "../../components/BackButton";
+import './KindCreatures.css'
 
 const shuffledCreatures = [...creaturesArray].sort(() => Math.random() - 0.5); //creates new array of shuffled creatures
 
@@ -66,7 +67,7 @@ export default function KindCreatures({ childName }) {
       />
       <div className="options">{options}</div>
       {selection && (
-        <button className="next-creature" onClick={nextCreature}>
+        <button className="next-question-button" onClick={nextCreature}>
           Next Creature
         </button>
       )}

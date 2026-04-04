@@ -1,9 +1,9 @@
 //import all creature images
-import unicornHappy from "../../assets/images/creatures/unicorn-happy.png";
-import dragonHappy from "../../assets/images/creatures/dragon-happy.png";
-import llamaHappy from "../../assets/images/creatures/llama-happy.png";
-import peacockHappy from "../../assets/images/creatures/peacock-happy.png";
-import phoenixExcited from "../../assets/images/creatures/phoenix-excited.png";
+import unicornMirror from "../../assets/images/creatures/unicorn-mirror.png";
+import dragonMirror from "../../assets/images/creatures/dragon-mirror.png";
+import llamaMirror from "../../assets/images/creatures/llama-mirror.png";
+import peacockMirror from "../../assets/images/creatures/peacock-mirror.png";
+import phoenixMirror from "../../assets/images/creatures/phoenix-mirror.png";
 
 //array of data for kind creatures game
 export const creaturesArray = [
@@ -11,7 +11,7 @@ export const creaturesArray = [
     id: 1,
     creature: "Unicorn",
     name: "Yardly",
-    image: unicornHappy,
+    image: unicornMirror,
     options: [
       "I love my body!",
       "I am kind!",
@@ -22,14 +22,14 @@ export const creaturesArray = [
     id: 2,
     creature: "Dragon",
     name: "Danny",
-    image: dragonHappy,
+    image: dragonMirror,
     options: ["I am enough!", "I am a good friend!", "I am amazing!"],
   },
   {
     id: 3,
     creature: "Llama",
     name: "Larry",
-    image: llamaHappy,
+    image: llamaMirror,
     options: [
       "I am good!",
       "I am brave!",
@@ -40,7 +40,7 @@ export const creaturesArray = [
     id: 4,
     creature: "Peacock",
     name: "Perry",
-    image: peacockHappy,
+    image: peacockMirror,
     options: [
       "I am beautiful!",
       "I can do hard things!",
@@ -51,7 +51,7 @@ export const creaturesArray = [
     id: 5,
     creature: "Phoenix",
     name: "Finnleigh",
-    image: phoenixExcited,
+    image: phoenixMirror,
     options: ["I am loved!", "I am capable of so much!", "I am happy!"],
   },
 ];

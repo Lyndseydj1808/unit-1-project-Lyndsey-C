@@ -8,12 +8,30 @@
   padding: 20px;
 }
 
+.parent-dashboard-container h1 {
+  margin-bottom: 5px;
+  color: var(--bg-lavender);
+}
+
 .parent-dashboard-container h2 {
-  color: var(--blue);
+  color: var(--text-dark);
+  margin-top: 5px;
 }
 
 .dashboard-description {
   color: var(--text-dark);
+  font-size: 20px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+.dashboard-list {
+  list-style: none; /* removes default bullet */
+  padding: 0;
+  line-height: 2.5; /* spacing between items */
+  font-size: 18px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .parent-form {
@@ -24,7 +42,7 @@
   width: 100%;
   max-width: 400px; /* prevents form getting too wide */
   margin: 0 auto; /* centers the form */
-  background-color: var(--purple);
+  background: rgb(from var(--purple) r g b / 0.7);
   border-radius: 12px;
   padding-top: 20px;
 }
@@ -49,7 +67,7 @@
 }
 
 .save-button {
-  background-color: var(--blue);
+  background-color: rgb(from var(--blue) r g b / 0.7);
   color: white;
   padding: 12px 12px;
   border-radius: 8px;
@@ -62,8 +80,8 @@
 }
 
 .save-button:hover {
-  background-color: var(--bubblegum);
-  color: var(--text-dark);
+  transform: scale(1.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .form-submit-feedback {
@@ -72,8 +90,8 @@
   gap: 8px;
   color: white;
   font-family: "Nunito", sans-serif;
-  font-size: 1 rem;
-  background-color: var(--purple);
+  font-size: 24px;
+  background-color: rgb(from var(--purple) r g b / 0.7);
   border-radius: 24px;
   max-width: 40%;
   padding: 12px 24px;
