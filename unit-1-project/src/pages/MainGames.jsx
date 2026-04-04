@@ -9,6 +9,7 @@ export default function MainGames({ childName }) {
       <h1 className="games-title">
         {childName ? `Hi ${childName}! Choose your game!` : `Choose your Game!`}
       </h1>
+      <div className="game-buttons">
       <Link className="game-button feeling-friends" to="/games/feeling-friends">
         <h2>Feeling Friends!</h2>
         <p>Can you tell how the creatures are feeling?</p>
@@ -18,6 +19,7 @@ export default function MainGames({ childName }) {
       <h2>Kind Creatures!</h2>
       <p>Can you help the creatures say something kind about themselves?</p>
       </Link>
+      </div>
       <BackButton />
     </div>
   );
