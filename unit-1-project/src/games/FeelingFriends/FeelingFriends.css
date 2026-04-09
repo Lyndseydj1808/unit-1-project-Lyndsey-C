@@ -8,11 +8,14 @@
   padding: 20px;
 }
 
-.game-title {
+.feeling-friends-container .game-title {
   color: var(--orange);
   font-family: nunito, sans-serif;
-  font-size: 50px;
+  font-size: 42px;
   margin-bottom: 8px;
+  background: rgb(from var(--bg-lavender) r g b / 0.7);
+  border-radius: 16px;
+  margin: 8px;
 }
 
 .game-question {
@@ -122,9 +125,14 @@
   transition: transform 0.1s ease;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 480px) {
   .creature-image {
-    max-width: 400px;
+    width: 85%;
+    max-width: 400x;
     max-height: auto;
+  }
+
+  .option-button {
+    width: 45%; /* two buttons per row */
   }
 }

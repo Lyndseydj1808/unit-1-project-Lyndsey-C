@@ -11,11 +11,18 @@
 .parent-dashboard-container h1 {
   margin-bottom: 5px;
   color: var(--bg-lavender);
+  background: rgb(from var(--text-dark) r g b / 0.7);
+  border-radius: 8px;
+  padding: 8px;
+
 }
 
 .parent-dashboard-container h2 {
   color: var(--text-dark);
   margin-top: 5px;
+  background: rgb(from var(--bg-lavender) r g b / 0.5);
+  border-radius: 8px;
+  padding: 8px;
 }
 
 .dashboard-description {
@@ -23,6 +30,9 @@
   font-size: 20px;
   margin-bottom: 5px;
   margin-top: 5px;
+  background: rgb(from var(--bg-lavender) r g b / 0.5);
+  border-radius: 12px;
+  padding: 8px;
 }
 
 .dashboard-list {
@@ -32,6 +42,9 @@
   font-size: 18px;
   margin-top: 5px;
   margin-bottom: 5px;
+  background: rgb(from var(--bg-lavender) r g b / 0.5);
+  border-radius: 12px;
+  padding: 8px;
 }
 
 .parent-form {
@@ -42,7 +55,7 @@
   width: 100%;
   max-width: 400px; /* prevents form getting too wide */
   margin: 0 auto; /* centers the form */
-  background: rgb(from var(--purple) r g b / 0.7);
+  background: rgb(from var(--bg-lavender) r g b / 0.7);
   border-radius: 12px;
   padding-top: 20px;
 }

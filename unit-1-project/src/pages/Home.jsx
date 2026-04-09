@@ -2,7 +2,7 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import './Home.css'
 import titleImageHorizontal from '../assets/images/lcfb-title-horizontal.png'
-import titleImageVertical from '../assets/images/lcfb-title-vertical.png'
+import titleImageVertical from '../assets/images/lcfb-background-2.png'
 
 export default function Home() {
   return (

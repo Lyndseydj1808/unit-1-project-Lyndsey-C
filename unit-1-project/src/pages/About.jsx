@@ -6,6 +6,7 @@ import "./About.css";
 export default function About({ childName }) {
   return (
     <div className="about-container">
+      <h1 className="about-the-game">About the game!</h1>
       <p className="about-description">
         {childName ? `Hi ${childName}!` : "Hi friend!"} Welcome to Little
         Creatures Feel Big! We hope you have so much fun playing with us! We
@@ -15,6 +16,8 @@ export default function About({ childName }) {
         check out our parent dashboard for more info and to enter your child's
         name and age to add to their fun!
       </p>
+      <h1 className="about-the-dev">About the developer!</h1>
+      <p className="about-description">......</p>
       <BackButton />
     </div>
   );
