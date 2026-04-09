@@ -79,11 +79,7 @@ footer {
   }
 
   .home-container {
-    justify-content: flex-start;  /* stops centering, respects padding */
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: bottom center;
-    padding-top: 10px;
+   background-image: none;
   }
   /*swaps so the vertical image shows on mobile*/
   .title-horizontal {
@@ -91,7 +87,7 @@ footer {
   }
   .title-vertical {
     display: block;
-    width: 70%;
+    width: 90%;
     height: auto;
     border-radius: 12px;
     margin: 0 auto; /*centers image*/
