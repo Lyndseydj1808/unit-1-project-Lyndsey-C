@@ -37,6 +37,7 @@
 .nav-button:hover {
   background-color: var(--orange);
   cursor: pointer;
+  transform: scale(1.1);
 }
 
 .mini-games {
@@ -52,8 +53,23 @@
 }
 
 footer {
+  display: flex;
+  flex-direction: row;
   font-size: 16px;
   color: var(--text-dark);
+  background: rgb(from var(--bg-lavender) r g b / 0.7);
+  border-radius: 8px;
+  padding: 8px;
+  margin-top: auto; /* pushes itself to the bottom */
+  justify-content: center;
+  gap: 16px;
+  width:100%;
+  box-sizing: border-box; 
+}
+
+footer p {
+  flex: 1; /* each p takes equal share of space */
+  text-align: center;
 }
 
 .title-horizontal {
@@ -61,7 +77,7 @@ footer {
   max-width: 700px;
   height: auto;
   border-radius: 24px;
-  margin-top: 24px;
+  margin-top: 270px;
   display: block;
   max-width: (300px, 80vw, 700px);
 }
@@ -78,8 +94,12 @@ footer {
     gap: 12px;
   }
 
+  .nav-button {
+    font-size: 1.5rem;
+  }
+
   .home-container {
-   background-image: none;
+    background-image: none;
   }
   /*swaps so the vertical image shows on mobile*/
   .title-horizontal {
@@ -91,6 +111,7 @@ footer {
     height: auto;
     border-radius: 12px;
     margin: 0 auto; /*centers image*/
+    margin-top: 80px;
   }
 
   /* Stack buttons vertically on mobile */
