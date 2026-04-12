@@ -1,24 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Home.css";
-import titleImageHorizontal from "../assets/images/lcfb-title-horizontal.png";
-import titleImageVertical from "../assets/images/lcfb-background-2.png";
 
 export default function Home() {
   return (
     <main className="home-container">
-      <header className="home-header">
-        <img
-          src={titleImageHorizontal}
-          className="title-horizontal"
-          alt="Little Creatures Feel Big! Title generated using AI"
-        />
-        <img
-          src={titleImageVertical}
-          className="title-vertical"
-          alt="Little Creatures Feel Big! Title generated using AI"
-        />
-      </header>
       <div className="nav-buttons">
         <Link className="nav-button mini-games" to="/mini-games">
           Mini-Games!
@@ -33,7 +19,7 @@ export default function Home() {
       <footer>
         <p>Designed for children ages 4-8</p>
         <p>© 2026 Little Creatures Feel Big Created by Lyndsey Clarkson</p>
-        <p>Images generated using Nano Banana AI</p>
+        <p>Images generated using AI - Nano Banana 2</p>
       </footer>
     </main>
   );

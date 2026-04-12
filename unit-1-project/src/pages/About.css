@@ -10,7 +10,52 @@
 
 .about-description {
   color: var(--text-dark);
-  font-size: 24px;
+  font-size: 30px;
   background: rgb(from var(--bg-lavender) r g b / 0.5);
   border-radius: 12px;
+  max-width: 700px;
+}
+
+.about-dev {
+  color: var(--text-dark);
+  font-size: 20px;
+  background: rgb(from var(--bg-lavender) r g b / 0.5);
+  border-radius: 12px;
+  max-width: 700px;
+}
+
+.about-list {
+  list-style: none; /* removes default bullet */
+  padding: 0;
+  line-height: 2.5; /* spacing between items */
+  font-size: 18px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  background: rgb(from var(--bg-lavender) r g b / 0.5);
+  border-radius: 12px;
+  padding: 8px;
+  max-width: 400px;
+}
+
+.profile-picture {
+  width: 150px;
+  height: auto;
+  border-radius: 30px;
+}
+
+.github-button {
+  background-color: var(--purple);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 16px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1rem;
+  display: inline-block;
+}
+
+.github-button:hover {
+  background-color: var(--pink);
+  cursor: pointer;
+  scale: 1.1;
 }
