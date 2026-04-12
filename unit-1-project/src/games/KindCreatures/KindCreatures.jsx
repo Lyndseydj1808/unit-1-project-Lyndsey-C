@@ -2,13 +2,16 @@ import React, { useState } from "react";
 import { creaturesArray } from "./creaturesData";
 import HomeButton from "../../components/HomeButton";
 import BackButton from "../../components/BackButton";
-import './KindCreatures.css'
+import "./KindCreatures.css";
+import LoadingSpinner from "../../components/LoadingSpinner";
+import MainGamesButton from "../../components/MainGamesButton";
 
 const shuffledCreatures = [...creaturesArray].sort(() => Math.random() - 0.5); //creates new array of shuffled creatures
 
 export default function KindCreatures({ childName }) {
   const [selection, setSelection] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   const currentCreature = shuffledCreatures[currentIndex];
 
@@ -19,6 +22,7 @@ export default function KindCreatures({ childName }) {
   function nextCreature() {
     setCurrentIndex(currentIndex + 1);
     setSelection("");
+    setImageLoaded(false);
   }
 
   if (currentIndex >= shuffledCreatures.length) {
@@ -34,10 +38,12 @@ export default function KindCreatures({ childName }) {
           onClick={() => {
             setCurrentIndex(0);
             setSelection("");
+            setImageLoaded(false);
           }}
         >
           Play Again!
         </button>
+        <MainGamesButton />
         <HomeButton />
       </div>
     );
@@ -59,13 +65,22 @@ export default function KindCreatures({ childName }) {
       <h2 className="game-question">
         {`Help ${currentCreature.name} the ${currentCreature.creature} feel amazing! Pick something kind to say!`}
       </h2>
-      {selection && <div className="user-selection">{selection}</div>}
+      {!imageLoaded && (
+        <div className="loading-placeholder">
+          <LoadingSpinner />
+        </div>
+      )}
+      {imageLoaded && selection && (
+        <div className="user-selection">{selection}</div>
+      )}
       <img
         className="creature-image"
         src={currentCreature.image}
         alt={`Image of a ${currentCreature.creature} generated using Nano Banana (AI)`}
+        onLoad={() => setImageLoaded(true)}
+        style={{ display: imageLoaded ? "block" : "none" }}
       />
-      <div className="options">{options}</div>
+      {imageLoaded && <div className="options">{options}</div>}
       {selection && (
         <button className="next-question-button" onClick={nextCreature}>
           Next Creature

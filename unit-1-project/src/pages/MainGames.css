@@ -68,9 +68,8 @@
   transition: transform 0.1s ease;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 480px) {
   .games-title {
     text-align: center;
-    padding-top: 60px;
   }
 }

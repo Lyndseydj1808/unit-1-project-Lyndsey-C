@@ -4,16 +4,13 @@
   align-items: center;
   justify-content: center;
   gap: 50px;
-  background-image: url("../assets/images/lcfb-background.png");
+  background-image: url("../assets/images/lcfb-background-5.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   min-height: 100vh;
-}
-
-.home-title {
-  font-size: clamp(1.5rem, 5vw, 4rem);
-  color: var(--purple);
+  position: relative;
+  padding-bottom: 60px;
 }
 
 .nav-buttons {
@@ -25,18 +22,23 @@
 }
 
 .nav-button {
-  font-size: clamp(0.9rem, 2vw, 1.4rem);
+  font-size: clamp(1.4rem, 2vw, 2rem);
+  max-width: 200px;
   text-decoration: none; /*removes the underline from the link*/
   color: white;
   border-radius: 16px;
-  padding: 12px 24px;
+  padding: 12px 50px;
   font-weight: 700;
-  display: inline-block; /*needed for padding to work on links*/
+  display: flex; /* use flex so text can be centered */
+  align-items: center; /* centers vertically */
+  justify-content: center; /* centers horizontally */
+  border: 3px solid white;
 }
 
 .nav-button:hover {
   background-color: var(--orange);
   cursor: pointer;
+  transform: scale(1.1);
 }
 
 .mini-games {
@@ -52,23 +54,26 @@
 }
 
 footer {
+  display: flex;
+  flex-direction: row;
   font-size: 16px;
   color: var(--text-dark);
+  background: rgb(from var(--bg-lavender) r g b / 0.7);
+  border-radius: 8px;
+  padding: 8px;
+  margin-top: auto; /* pushes itself to the bottom */
+  justify-content: center;
+  gap: 16px;
+  width: 100%;
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
 
-.title-horizontal {
-  width: 700%;
-  max-width: 700px;
-  height: auto;
-  border-radius: 24px;
-  margin-top: 24px;
-  display: block;
-  max-width: (300px, 80vw, 700px);
-}
-
-/* Shows horizontal, hides vertical image for desktop view */
-.title-vertical {
-  display: none;
+footer p {
+  flex: 1; /* each p takes equal share of space */
+  text-align: center;
 }
 
 @media (max-width: 480px) {
@@ -78,23 +83,12 @@ footer {
     gap: 12px;
   }
 
+  .nav-button {
+    font-size: 1.5rem;
+  }
+
   .home-container {
-    justify-content: flex-start;  /* stops centering, respects padding */
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: bottom center;
-    padding-top: 10px;
-  }
-  /*swaps so the vertical image shows on mobile*/
-  .title-horizontal {
-    display: none;
-  }
-  .title-vertical {
-    display: block;
-    width: 70%;
-    height: auto;
-    border-radius: 12px;
-    margin: 0 auto; /*centers image*/
+    background-image: none;
   }
 
   /* Stack buttons vertically on mobile */

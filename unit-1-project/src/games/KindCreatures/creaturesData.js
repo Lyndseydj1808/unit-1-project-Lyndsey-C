@@ -33,7 +33,7 @@ export const creaturesArray = [
     options: [
       "I am good!",
       "I am brave!",
-      "Today is going to be an amaing day!",
+      "Today is going to be an amazing day!",
     ],
   },
   {

@@ -8,11 +8,21 @@
   padding: 20px;
 }
 
-.game-title {
+.feeling-friends-container .game-title {
   color: var(--orange);
-  font-family: nunito, sans-serif;
+ font-family: nunito, sans-serif;
   font-size: 50px;
   margin-bottom: 8px;
+  background: rgb(
+    from var(--bg-lavender) r g b / 0.7
+  ); /*Take the color from this variable, keep the Red, Green, and Blue parts the same, but set the transparency to 0.7...makes the button transparent*/
+  border: 4px solid var(--text-dark);
+  border-radius: 30px;
+  max-width: 400px;
+  margin: 10px auto; /* centers horizontally */
+  padding: 12px 12px;
+  text-decoration: none;
+  text-align: center;
 }
 
 .game-question {
@@ -22,11 +32,21 @@
   margin-top: 0;
 }
 
+.loading-placeholder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 20px auto;
+}
+
 .creature-image {
   width: clamp(150px, 40vw, 600px);
   max-width: 600px;
   height: auto;
   border-radius: 12px;
+  display: block;
+  margin: 0 auto;
 }
 
 .option-button {
@@ -122,9 +142,14 @@
   transition: transform 0.1s ease;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 480px) {
   .creature-image {
-    max-width: 400px;
+    width: 85%;
+    max-width: 400x;
     max-height: auto;
+  }
+
+  .option-button {
+    width: 45%; /* two buttons per row */
   }
 }
