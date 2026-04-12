@@ -4,6 +4,7 @@ import HomeButton from "../../components/HomeButton";
 import BackButton from "../../components/BackButton";
 import "./KindCreatures.css";
 import LoadingSpinner from "../../components/LoadingSpinner";
+import MainGamesButton from "../../components/MainGamesButton";
 
 const shuffledCreatures = [...creaturesArray].sort(() => Math.random() - 0.5); //creates new array of shuffled creatures
 
@@ -42,6 +43,7 @@ export default function KindCreatures({ childName }) {
         >
           Play Again!
         </button>
+        <MainGamesButton />
         <HomeButton />
       </div>
     );
@@ -78,7 +80,7 @@ export default function KindCreatures({ childName }) {
         onLoad={() => setImageLoaded(true)}
         style={{ display: imageLoaded ? "block" : "none" }}
       />
-      <div className="options">{options}</div>
+      {imageLoaded && <div className="options">{options}</div>}
       {selection && (
         <button className="next-question-button" onClick={nextCreature}>
           Next Creature

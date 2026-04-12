@@ -5,6 +5,7 @@ import { useState } from "react";
 import "./FeelingFriends.css";
 import HomeButton from "../../components/HomeButton";
 import LoadingSpinner from "../../components/LoadingSpinner";
+import MainGamesButton from "../../components/MainGamesButton";
 
 const feelingEmojis = {
   Happy: "😊",
@@ -49,6 +50,7 @@ export default function FeelingFriends({ childName }) {
         >
           Play Again!
         </button>
+        <MainGamesButton />
         <HomeButton />
       </div>
     );
@@ -108,7 +110,7 @@ export default function FeelingFriends({ childName }) {
         </button>
       )}{" "}
       {/*Shows next question button if feedback exists */}
-      {!feedback && <div>{options}</div>}{" "}
+      {!feedback && imageLoaded && <div>{options}</div>}{" "}
       {/*only shows options when feedback does not exist */}
       <BackButton />
     </div>
