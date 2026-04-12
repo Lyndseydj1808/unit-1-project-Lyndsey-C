@@ -4,7 +4,16 @@ import { feelingFriendsQuestions } from "./feelingFriendsQuestions";
 import { useState } from "react";
 import "./FeelingFriends.css";
 import HomeButton from "../../components/HomeButton";
+import LoadingSpinner from "../../components/LoadingSpinner";
 
+const feelingEmojis = {
+  Happy: "😊",
+  Sad: "😢",
+  Angry: "😠",
+  Scared: "😨",
+  Excited: "🤩",
+  Disappointed: "😞",
+};
 const shuffledQuestions = [...feelingFriendsQuestions].sort(
   () => Math.random() - 0.5,
 ); //creates new array of shuffled questions
@@ -13,6 +22,7 @@ export default function FeelingFriends({ childName }) {
   const [score, setScore] = useState(0);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [feedback, setFeedback] = useState("");
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   const currentQuestion = shuffledQuestions[currentIndex];
 
@@ -34,6 +44,7 @@ export default function FeelingFriends({ childName }) {
             setCurrentIndex(0);
             setScore(0);
             setFeedback("");
+            setImageLoaded(false);
           }}
         >
           Play Again!
@@ -57,16 +68,8 @@ export default function FeelingFriends({ childName }) {
   function nextQuestion() {
     setCurrentIndex(currentIndex + 1);
     setFeedback("");
+    setImageLoaded(false);
   }
-
-  const feelingEmojis = {
-    Happy: "😊",
-    Sad: "😢",
-    Angry: "😠",
-    Scared: "😨",
-    Excited: "🤩",
-    Disappointed: "😞",
-  };
 
   const options = currentQuestion.options.map((option) => (
     <button
@@ -85,10 +88,17 @@ export default function FeelingFriends({ childName }) {
         How do you think {currentQuestion.name} the {currentQuestion.creature}{" "}
         is feeling right now?
       </h2>
+      {!imageLoaded && (
+        <div className="loading-placeholder">
+          <LoadingSpinner />
+        </div>
+      )}
       <img
         className="creature-image"
         src={currentQuestion.image}
         alt={`Image of a ${currentQuestion.creature} generated using Nano Banana (AI)`}
+        onLoad={() => setImageLoaded(true)}
+        style={{ display: imageLoaded ? "block" : "none" }}
       />
       {feedback && <div className="feedback">{feedback}</div>}{" "}
       {/*If feedback is truthy, show this*/}
