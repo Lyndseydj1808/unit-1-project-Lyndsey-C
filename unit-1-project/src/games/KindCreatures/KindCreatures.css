@@ -9,16 +9,10 @@
   border: 4px solid var(--text-dark);
   border-radius: 30px;
   max-width: 400px;
-  display: block; /* needed for margin auto to work on links */
-  margin: 10 auto; /* centers horizontally */
-  margin-left: 10px;
-  margin-right: 10px;
+  margin: 10px auto; /* centers horizontally */
   padding: 12px 12px;
   text-decoration: none;
   text-align: center;
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
 }
 
 .user-selection {
@@ -69,6 +63,10 @@
   background: rgb(from var(--purple) r g b / 0.8);
   border-radius: 50%;
   transform: translateX(-50%);
+}
+
+.options {
+  padding: 20px;
 }
 
 @media (max-width: 480px) {
