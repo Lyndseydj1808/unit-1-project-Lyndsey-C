@@ -41,7 +41,7 @@ export default function KindCreatures({ childName }) {
             setImageLoaded(false);
           }}
         >
-          Play Again!
+          ▶️ Play Again!
         </button>
         <MainGamesButton />
         <HomeButton />
@@ -83,7 +83,7 @@ export default function KindCreatures({ childName }) {
       {imageLoaded && <div className="options">{options}</div>}
       {selection && (
         <button className="next-question-button" onClick={nextCreature}>
-          Next Creature
+          Next Creature ➡️
         </button>
       )}
       <BackButton />
