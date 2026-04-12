@@ -48,7 +48,7 @@ export default function FeelingFriends({ childName }) {
             setImageLoaded(false);
           }}
         >
-          Play Again!
+          ▶️ Play Again!
         </button>
         <MainGamesButton />
         <HomeButton />
@@ -106,7 +106,7 @@ export default function FeelingFriends({ childName }) {
       {/*If feedback is truthy, show this*/}
       {feedback && (
         <button className="next-question-button" onClick={nextQuestion}>
-          Next Question
+          Next Question ➡️
         </button>
       )}{" "}
       {/*Shows next question button if feedback exists */}
