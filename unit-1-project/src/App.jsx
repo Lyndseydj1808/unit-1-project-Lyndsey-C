@@ -20,6 +20,12 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route
+          path="/parent-dashboard"
+          element={
+            <ParentDashboard onUpdate={updateChild} childName={childName} />
+          }
+        />
+        <Route
           path="/mini-games"
           element={<MainGames childName={childName} />}
         />
@@ -30,12 +36,6 @@ function App() {
         <Route
           path="/games/kind-creatures"
           element={<KindCreatures childName={childName} />}
-        />
-        <Route
-          path="/parent-dashboard"
-          element={
-            <ParentDashboard onUpdate={updateChild} childName={childName} />
-          }
         />
         <Route path="/about" element={<About childName={childName} />} />
       </Routes>
