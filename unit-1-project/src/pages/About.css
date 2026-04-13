@@ -59,3 +59,41 @@
   cursor: pointer;
   scale: 1.1;
 }
+
+.meet-the-creatures caption {
+  font-size: 40px;
+  background-color: rgb(from var(--teal) r g b / 0.7);
+  color: var(--bg-lavender);
+  align-items: center;
+  border-radius: 12px;
+  margin-bottom: 16px;
+}
+
+.table-creature-image {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%; /* circular image */
+}
+
+table {
+  border-collapse: collapse; /* removes double borders */
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+th {
+  background-color: var(--purple);
+  color: white;
+  padding: 12px;
+  font-size: 30px;
+}
+
+td {
+  padding: 10px;
+  border-bottom: 1px solid var(--bg-lavender);
+  font-size: 30px;
+  color: var(--text-dark);
+  background-color: rgb(from var(--bg-lavender) r g b / 0.7);
+}
