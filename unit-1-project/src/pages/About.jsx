@@ -8,15 +8,18 @@ import peacockHappy from "../assets/images/creatures/peacock-happy.png";
 import phoenixHappy from "../assets/images/creatures/phoenix-excited.png";
 import llamaHappy from "../assets/images/creatures/llama-happy.png";
 import dragonHappy from "../assets/images/creatures/dragon-happy.png";
+
 export default function About({ childName }) {
   return (
     <div className="about-container">
+      <header className="main-header">
       <h1 className="about-the-game">About the game!</h1>
       <p className="about-description">
         {childName ? `Hi ${childName}!` : "Hi friend!"} Welcome to Little
         Creatures Feel Big! We hope you have so much fun playing with us! We
         love learning about our big feelings in a fun way!{" "}
       </p>
+      </header>
       <ul className="about-list">
         <li>
           ✨ Play our Feeling Friends game to guess how the creatures are
@@ -31,7 +34,7 @@ export default function About({ childName }) {
           enter your child's name and age to add to their fun!
         </li>
       </ul>
-      <div className="meet-the-creatures">
+      <div className="meet-the-creatures-container">
         <table>
           <caption>Meet the Creatures!</caption>
           <thead>
@@ -41,7 +44,6 @@ export default function About({ childName }) {
               <th>Name</th>
             </tr>
           </thead>
-        </table>
         <tbody>
           <tr>
             <td>
@@ -99,6 +101,7 @@ export default function About({ childName }) {
             <td>Finnleigh</td>
           </tr>
         </tbody>
+        </table>
       </div>
       <h1 className="about-the-dev">About the developer!</h1>
       <img
