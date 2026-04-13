@@ -3,7 +3,11 @@ import { Link } from "react-router-dom";
 import BackButton from "../components/BackButton";
 import "./About.css";
 import profilePicture from "../assets/images/profile-pic.jpg";
-
+import unicornHappy from "../assets/images/creatures/unicorn-happy.png";
+import peacockHappy from "../assets/images/creatures/peacock-happy.png";
+import phoenixHappy from "../assets/images/creatures/phoenix-excited.png";
+import llamaHappy from "../assets/images/creatures/llama-happy.png";
+import dragonHappy from "../assets/images/creatures/dragon-happy.png";
 export default function About({ childName }) {
   return (
     <div className="about-container">
@@ -27,6 +31,75 @@ export default function About({ childName }) {
           enter your child's name and age to add to their fun!
         </li>
       </ul>
+      <div className="meet-the-creatures">
+        <table>
+          <caption>Meet the Creatures!</caption>
+          <thead>
+            <tr>
+              <th>Picture</th>
+              <th>Creature</th>
+              <th>Name</th>
+            </tr>
+          </thead>
+        </table>
+        <tbody>
+          <tr>
+            <td>
+              <img
+                src={unicornHappy}
+                className="table-creature-image"
+                alt="Unicorn image created using AI"
+              />
+            </td>
+            <td>Unicorn</td>
+            <td>Yardly</td>
+          </tr>
+          <tr>
+            <td>
+              <img
+                src={peacockHappy}
+                className="table-creature-image"
+                alt="Peacock image created using AI"
+              />
+            </td>
+            <td>Peacock</td>
+            <td>Perry</td>
+          </tr>
+          <tr>
+            <td>
+              <img
+                src={llamaHappy}
+                className="table-creature-image"
+                alt="Llama image created using AI"
+              />
+            </td>
+            <td>Llama</td>
+            <td>Larry</td>
+          </tr>
+          <tr>
+            <td>
+              <img
+                src={dragonHappy}
+                className="table-creature-image"
+                alt="Dragon image created using AI"
+              />
+            </td>
+            <td>Dragon</td>
+            <td>Danny</td>
+          </tr>
+          <tr>
+            <td>
+              <img
+                src={phoenixHappy}
+                className="table-creature-image"
+                alt="Phoenix image created using AI"
+              />
+            </td>
+            <td>Phoenix</td>
+            <td>Finnleigh</td>
+          </tr>
+        </tbody>
+      </div>
       <h1 className="about-the-dev">About the developer!</h1>
       <img
         className="profile-picture"
