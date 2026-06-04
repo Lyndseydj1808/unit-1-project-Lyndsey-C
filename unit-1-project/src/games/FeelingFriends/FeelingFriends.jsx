@@ -17,23 +17,24 @@ const feelingEmojis = {
 };
 const shuffledQuestions = [...feelingFriendsQuestions].sort(
   () => Math.random() - 0.5,
-); //creates new array of shuffled questions
+); //creates new array of shuffled questions.....SHOULD HAVE MOVED THIS INSIDE THE FUNCTION SO IMAGES SHUFFLE ON EVERY PLAY, NOT JUST AFTER PAGE RELOAD
 
 export default function FeelingFriends({ childName }) {
-  const [score, setScore] = useState(0);
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [feedback, setFeedback] = useState("");
-  const [imageLoaded, setImageLoaded] = useState(false);
+  /*passed childName as a prop to this function to incorporate the child’s name from the form input into the end game message */
+  const [score, setScore] = useState(0);/*state to track score*/
+  const [currentIndex, setCurrentIndex] = useState(0);/*State to track current index */
+  const [feedback, setFeedback] = useState("");/*state to set feedback after child selects option */
+  const [imageLoaded, setImageLoaded] = useState(false);/*state to track image loaded status so loading spinner can show if image not laoded */
 
-  const currentQuestion = shuffledQuestions[currentIndex];
+  const currentQuestion = shuffledQuestions[currentIndex];/*displays shuffledQuestions array at current index */
 
-  if (currentIndex >= shuffledQuestions.length) {
+  if (currentIndex >= shuffledQuestions.length) {/*logic to show end of game feedback */
     return (
       <div className="end-game-container">
         <h2 className="end-game-feedback">
           {childName
             ? `Congratulations ${childName}! You finished the game!`
-            : `Congratulations! You finished the game!`}
+            : `Congratulations! You finished the game!`}{/*ternary operator...shows childName if there is one...if not displays general message */}
         </h2>
         <p className="score-feedback">
           You got {score} out of {shuffledQuestions.length} questions right!
@@ -46,7 +47,7 @@ export default function FeelingFriends({ childName }) {
             setScore(0);
             setFeedback("");
             setImageLoaded(false);
-          }}
+          }}/*resets all state for replay */
         >
           ▶️ Play Again!
         </button>
@@ -58,28 +59,33 @@ export default function FeelingFriends({ childName }) {
 
   function handleAnswer(option) {
     if (option === currentQuestion.correctAnswer) {
-      setScore(score + 1);
+      /*used an if statement to display feedback if child chooses correct answer */
+      setScore(
+        score + 1,
+      ); /* used a React hook to update the users score when correct */
       setFeedback(`That's right! ${currentQuestion.name} the ${currentQuestion.creature} is
-          feeling ${currentQuestion.correctAnswer}. Great job!`);
+          feeling ${currentQuestion.correctAnswer}. Great job!`); /*React hook to setFeedback and string interpolation to incorporate the creature name into the question displayed above the image */
     } else {
       setFeedback(`Not quite. The ${currentQuestion.creature} is feeling
-          ${currentQuestion.correctAnswer} right now.`);
+          ${currentQuestion.correctAnswer} right now.`);/*else display this if child selects incorrect answer */
     }
   }
 
-  function nextQuestion() {
+  function nextQuestion() {/*goes to next creature index, resets feedback and image loaded status */
     setCurrentIndex(currentIndex + 1);
     setFeedback("");
     setImageLoaded(false);
   }
 
-  const options = currentQuestion.options.map((option) => (
+  const options = currentQuestion.options.map((option) => (/*maps through the options in my array to display all options */
     <button
       key={option}
       className="option-button"
-      onClick={() => handleAnswer(option)}
+      onClick={() =>
+        handleAnswer(option)
+      } /* I used React hooks and an event handler to handle user selection. */
     >
-      {option} {feelingEmojis[option]}
+      {option} {feelingEmojis[option]}{/*shows the option and the corresponding feeling emoji*/}
     </button>
   ));
 
@@ -89,8 +95,8 @@ export default function FeelingFriends({ childName }) {
       <h2 className="game-question">
         How do you think {currentQuestion.name} the {currentQuestion.creature}{" "}
         is feeling right now?
-      </h2>
-      {!imageLoaded && (
+      </h2>{/*uses string interpolation to pull the current name and creature into the question */}
+      {!imageLoaded && (/* conditional rendering to display a loading spinner until the image is loaded */
         <div className="loading-placeholder">
           <LoadingSpinner />
         </div>
@@ -99,8 +105,8 @@ export default function FeelingFriends({ childName }) {
         className="creature-image"
         src={currentQuestion.image}
         alt={`Image of a ${currentQuestion.creature} generated using Nano Banana (AI)`}
-        onLoad={() => setImageLoaded(true)}
-        style={{ display: imageLoaded ? "block" : "none" }}
+        onLoad={() => setImageLoaded(true)}/* event handler that fires once the image has fully downloaded and rendered */
+        style={{ display: imageLoaded ? "block" : "none" }}/* hides the image while it's loading, shows it when it's ready. */
       />
       {feedback && <div className="feedback">{feedback}</div>}{" "}
       {/*If feedback is truthy, show this*/}

@@ -15,7 +15,7 @@
   text-align: center;
 }
 
-.user-selection {
+.user-selection { /* This is the text bubble*/
   background: rgb(from var(--purple) r g b / 0.8);
   color: var(--bg-sky);
   font-family: "Chewy", sans-serif;
@@ -25,20 +25,20 @@
   border-radius: 24px;
   width: fit-content;
   margin: 0 auto 20px auto;
-  position: relative;
+  position: relative;  /* allows ::before and ::after to position relative to it */
   margin-bottom: 20px;
   font-size: 1.5rem;
 }
 
 .user-selection::after {
   /*this creates the first and second cirles*/
-  content: "";
+  content: "";/*required for psuedo elements to appear*/
   position: absolute;
   /*positions them below the bubble*/
   top: 100%;
   margin-top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 50%; /* starts at center */
+  transform: translateX(-50%);/* shifts the element back to the left by half its width*/
   /*size of the medium circle*/
   width: 14px;
   height: 14px;
@@ -46,7 +46,7 @@
   margin-top: 35px;
   background: rgb(from var(--purple) r g b / 0.8);
   border-radius: 50%;
-  /* This 'box-shadow' creates the third, smallest circle! */
+  /* This 'box-shadow' creates the third, smallest circle */
   /* It's shifted 8px right and 20px down, 12px wide (14 - 2)*/
   box-shadow: 8px 20px 0 -2px rgb(from var(--purple) r g b / 0.8);
 }

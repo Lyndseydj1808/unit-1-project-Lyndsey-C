@@ -9,7 +9,7 @@ import KindCreatures from "./games/KindCreatures/KindCreatures";
 
 function App() {
   const [childName, setChildName] = useState("");
-  const [childAge, setChildAge] = useState("");
+  const [childAge, setChildAge] = useState("");/*havent incorporated age anywhere yet but hope to in the future */
 
   const updateChild = (name, age) => {
     setChildName(name);
