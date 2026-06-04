@@ -6,6 +6,7 @@ import "./FeelingFriends.css";
 import HomeButton from "../../components/HomeButton";
 import LoadingSpinner from "../../components/LoadingSpinner";
 import MainGamesButton from "../../components/MainGamesButton";
+import shuffleArray from "../../utils/shuffleArray";
 
 const feelingEmojis = {
   Happy: "😊",
@@ -15,9 +16,6 @@ const feelingEmojis = {
   Excited: "🤩",
   Disappointed: "😞",
 };
-const shuffledQuestions = [...feelingFriendsQuestions].sort(
-  () => Math.random() - 0.5,
-); //creates new array of shuffled questions.....SHOULD HAVE MOVED THIS INSIDE THE FUNCTION SO IMAGES SHUFFLE ON EVERY PLAY, NOT JUST AFTER PAGE RELOAD
 
 export default function FeelingFriends({ childName }) {
   /*passed childName as a prop to this function to incorporate the child’s name from the form input into the end game message */
@@ -25,10 +23,18 @@ export default function FeelingFriends({ childName }) {
   const [currentIndex, setCurrentIndex] = useState(0);/*State to track current index */
   const [feedback, setFeedback] = useState("");/*state to set feedback after child selects option */
   const [imageLoaded, setImageLoaded] = useState(false);/*state to track image loaded status so loading spinner can show if image not laoded */
+  
+  //Initializes state with a shuffled version of the questions array
+  const [questions, setQuestions] = useState(() => shuffleArray(feelingFriendsQuestions));
+  
+  //fallback protection in case of empty array
+  if (questions.length === 0) {
+    return <div className="feeling-friends-container"><LoadingSpinner /></div>;
+  }
 
-  const currentQuestion = shuffledQuestions[currentIndex];/*displays shuffledQuestions array at current index */
+  const currentQuestion = questions[currentIndex];
 
-  if (currentIndex >= shuffledQuestions.length) {/*logic to show end of game feedback */
+  if (currentIndex >= questions.length) {/*logic to show end of game feedback */
     return (
       <div className="end-game-container">
         <h2 className="end-game-feedback">
@@ -37,12 +43,13 @@ export default function FeelingFriends({ childName }) {
             : `Congratulations! You finished the game!`}{/*ternary operator...shows childName if there is one...if not displays general message */}
         </h2>
         <p className="score-feedback">
-          You got {score} out of {shuffledQuestions.length} questions right!
+          You got {score} out of {questions.length} questions right!
           Great job!
         </p>
         <button
           className="play-again-button"
           onClick={() => {
+            setQuestions(shuffleArray(feelingFriendsQuestions));//shuffles questions for play again
             setCurrentIndex(0);
             setScore(0);
             setFeedback("");

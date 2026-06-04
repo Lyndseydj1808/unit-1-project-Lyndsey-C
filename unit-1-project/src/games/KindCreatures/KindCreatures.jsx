@@ -5,20 +5,24 @@ import BackButton from "../../components/BackButton";
 import "./KindCreatures.css";
 import LoadingSpinner from "../../components/LoadingSpinner";
 import MainGamesButton from "../../components/MainGamesButton";
-
-const shuffledCreatures = [...creaturesArray].sort(() => Math.random() - 0.5); //creates new array of shuffled creatures
+import shuffleArray from "../../utils/shuffleArray";
 
 export default function KindCreatures({ childName }) {
   /*pass childName prop in */
   const [selection, setSelection] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [imageLoaded, setImageLoaded] = useState(false);
-  /*const [shuffledCreatures, setShuffledCreatures] = useState(
-  () => [...creaturesArray].sort(() => Math.random() - 0.5)
-);....should have stored the shuffledCreatures array in useState so it shuffles once per game session and then added the state to the play again button so it re-shuffles for a new game */
+
+  //initializes state with shuffled creatures
+  const [shuffledCreatures, setShuffledCreatures] = useState(() => shuffleArray(creaturesArray));
 
   const currentCreature = shuffledCreatures[currentIndex];
 
+  //fallback protection in case of empty array
+  if(shuffledCreatures.length === 0) {
+        return <div className="feeling-friends-container"><LoadingSpinner /></div>;
+  }
+  
   function handleAnswer(option) {
     /*sets selection to option chosen by user */
     setSelection(option);
@@ -46,7 +50,7 @@ export default function KindCreatures({ childName }) {
             setCurrentIndex(0);
             setSelection("");
             setImageLoaded(false);
-            /*setShuffledCreatures([...creaturesArray].sort(() => Math.random() - 0.5)); // re-shuffle! */
+            setShuffledCreatures(shuffleArray(creaturesArray));//shuffles on replay
           }}
         >
           ▶️ Play Again!
