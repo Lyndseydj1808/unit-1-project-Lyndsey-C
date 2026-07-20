@@ -1,6 +1,6 @@
 Little Creatures Feel Big
 
-A full-stack game application built for children ages 4–8, designed to support social-emotional learning through simple, friendly gameplay.
+A full-stack game application built for children ages four to eight, designed to support social-emotional learning through simple, friendly gameplay.
 
 Live demo: littlecreaturesfeelbig.netlify.app
 
