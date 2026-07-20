@@ -4,7 +4,7 @@ A full-stack game application built for children ages four to eight, designed to
 
 Live demo: littlecreaturesfeelbig.netlify.app
 
-Status: In development, front end complete, backend in progress · LaunchCode Capstone Project (expected October 2026)
+Status: In development, front-end complete, back-end in progress · LaunchCode Capstone Project (expected October 2026)
 
 
 About
@@ -16,7 +16,7 @@ Features
 Available now:
 
 
-Feeling Friends — a creature is displayed, and the child chooses which emotion best matches it (happy, sad, and others), building basic emotion-recognition skills.
+Feeling Friends — a creature is displayed, and the child chooses which emotion best matches it (happy, sad, angry, etc.), building basic emotion-recognition skills.
 Kind Creatures — a creature is displayed alongside a set of positive affirmations; the child selects one, and it appears above the creature, reinforcing positive self-talk.
 Parent Dashboard — a parent can enter their child's name to personalize the experience.
 About Page — background on the game and its creator.
@@ -27,6 +27,7 @@ In progress / planned:
 
 Audio integration (an API-connected voice for affirmations and prompts).
 A database to store user/child information.
+A timer for parents to set time limits for child.
 A third mini-game, time permitting.
 
 
@@ -45,6 +46,7 @@ Roadmap
 
  Connect an audio API so affirmations and prompts can be read aloud
  Build out the backend database to persist child profiles and game progress
+ Add timer for parents to set limits.
  Add a third mini-game
  Deploy the completed backend alongside the live frontend
 
