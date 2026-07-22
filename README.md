@@ -33,9 +33,9 @@ A third mini-game, time permitting.
 
 Tech Stack
 
-Frontend: React, JavaScript, HTML/CSS
+Frontend: React, JavaScript, HTML/CSS, Node.js
 
-Backend: Java, Spring Boot, Node.js
+Backend: Java, Spring Boot
 
 Database: SQL (MySQL)
 
