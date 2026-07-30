@@ -36,43 +36,6 @@ body {
   cursor: default;
 }
 
-.back-button {
-  background: rgb(from var(--text-dark) r g b / 0.7);
-  color: white;
-  padding: 12px 12px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-size: clamp(0.9rem, 2vw, 1.5rem);
-  font-weight: 600;
-  display: inline-block;
-  cursor: pointer;
-  margin: 12px;
-  margin-top: 40px;
-}
-
-.back-button:hover {
-  transform: scale(1.1);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-.home-button {
-  background: rgb(from var(--purple) r g b / 0.7);
-  color: white;
-  padding: 12px 12px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-size: clamp(0.9rem, 2vw, 1.5rem);
-  font-weight: 600;
-  display: inline-block;
-  cursor: pointer;
-  margin: 12px;
-}
-
-.home-button:hover {
-  transform: scale(1.1);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
-
 h1 {
   font-size: clamp(1.5rem, 4vw, 3rem);
 }
@@ -85,21 +48,4 @@ p {
   font-size: clamp(0.875rem, 2vw, 1rem);
 }
 
-.main-games-button {
-  background: var(--pink);
-  color: white;
-  padding: 12px 12px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-size: clamp(0.9rem, 2vw, 1.5rem);
-  font-weight: 600;
-  display: inline-block;
-  cursor: pointer;
-  margin: 12px;
-  margin-top: 20px;
-}
 
-.main-games-button:hover {
-  transform: scale(1.1);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
