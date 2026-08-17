@@ -6,6 +6,7 @@ import "./KindCreatures.css";
 import LoadingSpinner from "../../components/LoadingSpinner";
 import MainGamesButton from "../../components/MainGamesButton";
 import shuffleArray from "../../utils/shuffleArray";
+import AudioButton from "../../components/audioButton";
 
 export default function KindCreatures({ childName }) {
   /*pass childName prop in */
@@ -25,7 +26,10 @@ export default function KindCreatures({ childName }) {
   
   function handleAnswer(option) {
     /*sets selection to option chosen by user */
-    setSelection(option);
+    setSelection(option.affirmation);
+    const sound = new Audio(option.audio);
+    sound.play();
+
   }
 
   function nextCreature() {
@@ -63,13 +67,16 @@ export default function KindCreatures({ childName }) {
 
   const options = currentCreature.options.map(
     (option /*maps options and handles on click */) => (
-      <button
-        key={option}
-        className="option-button"
-        onClick={() => handleAnswer(option)}
+      <div key={option.affirmation} className="option-wrapper">
+       <AudioButton audioSrc={option.audio} />
+        <button
+          className="option-button"
+          onClick={() => handleAnswer(option)}
       >
-        {option}
+        {option.affirmation}
       </button>
+      
+      </div>
     ),
   );
 
@@ -77,6 +84,7 @@ export default function KindCreatures({ childName }) {
     <div className="kind-creatures-container">
       <h1 className="game-title">Kind Creatures!</h1>
       <h2 className="game-question">
+        <AudioButton audioSrc={currentCreature.questionAudio} />
         {`Help ${currentCreature.name} the ${currentCreature.creature} feel amazing! Pick something kind to say!`}
         {/*uses string interpolation to incorporate current creature info*/}
       </h2>
