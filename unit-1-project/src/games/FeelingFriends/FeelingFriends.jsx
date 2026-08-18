@@ -7,14 +7,21 @@ import HomeButton from "../../components/HomeButton";
 import LoadingSpinner from "../../components/LoadingSpinner";
 import MainGamesButton from "../../components/MainGamesButton";
 import shuffleArray from "../../utils/shuffleArray";
+import happyAudio from "../../assets/audio/feelings/happy.mp3";
+import sadAudio from "../../assets/audio/feelings/sad.mp3";
+import angryAudio from "../../assets/audio/feelings/angry.mp3";
+import scaredAudio from "../../assets/audio/feelings/scared.mp3";
+import excitedAudio from "../../assets/audio/feelings/excited.mp3";
+import disappointedAudio from "../../assets/audio/feelings/disappointed.mp3";
+import AudioButton from "../../components/audioButton";
 
 const feelingEmojis = {
-  Happy: "😊",
-  Sad: "😢",
-  Angry: "😠",
-  Scared: "😨",
-  Excited: "🤩",
-  Disappointed: "😞",
+  Happy: {emoji: "😊", audio: happyAudio },
+  Sad: {emoji: "😢", audio: sadAudio },
+  Angry: {emoji: "😠", audio: angryAudio},
+  Scared: {emoji: "😨", audio: scaredAudio},
+  Excited: {emoji: "🤩", audio: excitedAudio},
+  Disappointed: {emoji: "😞", audio: disappointedAudio},
 };
 
 export default function FeelingFriends({ childName }) {
@@ -85,21 +92,24 @@ export default function FeelingFriends({ childName }) {
   }
 
   const options = currentQuestion.options.map((option) => (/*maps through the options in my array to display all options */
+    <div className="option-button-container" key={option}>
+            <AudioButton audioSrc={feelingEmojis[option].audio} />
     <button
-      key={option}
       className="option-button"
       onClick={() =>
         handleAnswer(option)
       } /* I used React hooks and an event handler to handle user selection. */
     >
-      {option} {feelingEmojis[option]}{/*shows the option and the corresponding feeling emoji*/}
+      {option} {feelingEmojis[option].emoji}{/*shows the option and the corresponding feeling emoji*/}
     </button>
+    </div>
   ));
 
   return (
     <div className="feeling-friends-container">
       <h1 className="game-title">Feeling Friends!</h1>
       <h2 className="game-question">
+        <AudioButton audioSrc={currentQuestion.questionAudio} />
         How do you think {currentQuestion.name} the {currentQuestion.creature}{" "}
         is feeling right now?
       </h2>{/*uses string interpolation to pull the current name and creature into the question */}
@@ -123,7 +133,7 @@ export default function FeelingFriends({ childName }) {
         </button>
       )}{" "}
       {/*Shows next question button if feedback exists */}
-      {!feedback && imageLoaded && <div>{options}</div>}{" "}
+      {!feedback && imageLoaded && <div className="options-grid">{options}</div>}{" "}
       {/*only shows options when feedback does not exist */}
       <BackButton />
     </div>

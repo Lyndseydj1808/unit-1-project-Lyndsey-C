@@ -12,7 +12,7 @@ export default function AudioButton({audioSrc}) {
 
     return (
         <div>
-            <button className="play-audio" onClick={handlePlay}>
+            <button className="audio-button" onClick={handlePlay}>
                 🔊
             </button>
         </div>
