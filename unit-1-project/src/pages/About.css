@@ -27,7 +27,7 @@
 .about-list {
   list-style: none; /* removes default bullet */
   padding: 0;
-  line-height: 2.5; /* spacing between items */
+  line-height: 2; /* spacing between items */
   font-size: 18px;
   margin-top: 5px;
   margin-bottom: 5px;

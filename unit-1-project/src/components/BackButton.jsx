@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import './BackButton.css'
 
 //back button component to go back to previous page
 export default function BackButton() {
