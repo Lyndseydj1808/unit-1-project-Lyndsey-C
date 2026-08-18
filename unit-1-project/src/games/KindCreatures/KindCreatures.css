@@ -2,7 +2,6 @@
   color: var(--purple);
   font-family: nunito, sans-serif;
   font-size: 50px;
-  margin-bottom: 8px;
   background: rgb(
     from var(--bg-lavender) r g b / 0.7
   ); /*Take the color from this variable, keep the Red, Green, and Blue parts the same, but set the transparency to 0.7...makes the button transparent*/
@@ -66,7 +65,30 @@
 }
 
 .options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
   padding: 20px;
+}
+
+.option-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  justify-content: center;
+}
+
+.game-question {
+  color: var(--text-dark);
+  font-family: nunito, sans-serif;
+  font-size: 1.5rem;
+  margin: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 
 @media (max-width: 480px) {
