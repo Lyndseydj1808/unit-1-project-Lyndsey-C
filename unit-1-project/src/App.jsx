@@ -6,10 +6,15 @@ import ParentDashboard from "./pages/ParentDashboard";
 import FeelingFriends from "./games/FeelingFriends/FeelingFriends";
 import MainGames from "./pages/MainGames";
 import KindCreatures from "./games/KindCreatures/KindCreatures";
+import ParentLogin from "./pages/ParentLogin";
+import ParentCreateAccount from "./pages/ParentCreateAccount";
 
 function App() {
   const [childName, setChildName] = useState("");
-  const [childAge, setChildAge] = useState("");/*havent incorporated age anywhere yet but hope to in the future */
+  const [childAge, setChildAge] =
+    useState(
+      "",
+    ); /*havent incorporated age anywhere yet but hope to in the future */
 
   const updateChild = (name, age) => {
     setChildName(name);
@@ -19,12 +24,14 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/parent-login" element={<ParentLogin />} />
         <Route
           path="/parent-dashboard"
           element={
             <ParentDashboard onUpdate={updateChild} childName={childName} />
           }
         />
+        <Route path="/parent-create-account" element={<ParentCreateAccount />} />
         <Route
           path="/mini-games"
           element={<MainGames childName={childName} />}
