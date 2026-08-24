@@ -9,6 +9,8 @@ import KindCreatures from "./games/KindCreatures/KindCreatures";
 import ParentLogin from "./pages/ParentLogin";
 import ParentCreateAccount from "./pages/ParentCreateAccount";
 import CreateChildAccount from "./pages/CreateChildAccount";
+import ChildAccounts from "./pages/ChildAccounts";
+import TimeLimit from "./pages/TimeLimit";
 
 function App() {
   const [childName, setChildName] = useState("");
@@ -33,6 +35,8 @@ function App() {
           element={<ParentCreateAccount />}
         />
         <Route path="/create-child-account" element={<CreateChildAccount onUpdateChild={onUpdateChild} childName={childName} />} />
+        <Route path="/child-accounts" element={<ChildAccounts />} />
+        <Route path="/time-limit" element={<TimeLimit />} />
         <Route
           path="/mini-games"
           element={<MainGames childName={childName} />}
