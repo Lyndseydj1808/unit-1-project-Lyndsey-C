@@ -67,23 +67,28 @@ export default function ParentCreateAccount({ onUpdate, childName }) {
           )}
           {!formSubmit && (
             <form className="parent-form" onSubmit={handleSubmit}>
+              <label htmlFor="childName">Child's Name</label>
               <input
                 className="parent-form-input"
                 type="text"
+                id="childName"
                 value={inputName}
                 onChange={(event) => setInputName(event.target.value)}
                 placeholder="Enter child's name"
               />
+              <label htmlFor="childAge">Child's Age</label>
               <input
                 className="parent-form-input"
                 type="number"
+                id="childAge"
                 min="1"
                 max="17"
                 value={inputAge}
                 onChange={(event) => setInputAge(event.target.value)}
                 placeholder="Enter child's age"
               />
-              <select name="chooseCreature" id="chooseCreature">
+              <label htmlFor="creature-choice">Choose A Creature</label>
+              <select name="chooseCreature" id="creature-choice">
                 <option value="Unicorn">Unicorn</option>
                 <option value="Dragon">Dragon</option>
                 <option value="Llama">Llama</option>
