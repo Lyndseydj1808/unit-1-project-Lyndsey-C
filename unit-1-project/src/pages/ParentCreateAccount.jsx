@@ -1,22 +1,28 @@
 import React, { useState } from "react";
 import BackButton from "../components/BackButton";
-import "./ParentDashboard.css";
+import "./ParentCreateAccount.css";
+import { Link } from "react-router-dom";
+import ParentDashboardButton from "../components/ParentDashboardButton";
+import HomeButton from "../components/HomeButton";
 
-export default function ParentCreateAccount({ onUpdate, childName }) {
+export default function ParentCreateAccount() {
   const [formSubmit, setFormSubmit] = useState(false);
-  const [inputName, setInputName] = useState("");
-  const [inputAge, setInputAge] = useState("");
+  const [email, setEmail] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [password, setPassword] = useState("");
   const [formValidationFeedback, setFormValidationFeedback] = useState("");
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const age = Number(inputAge);
-    if (!inputName || !inputAge) {
-      setFormValidationFeedback("⚠️ Please enter name and age.");
-    } else if (age >= 18 || age <= 0) {
-      setFormValidationFeedback("⚠️ Please enter a valid age.");
+    if (!email || !firstName || !lastName || !password) {
+      setFormValidationFeedback("⚠️ Please include all required fields.");
+    } else if (password.length < 8) {
+      setFormValidationFeedback(
+        "⚠️ Password must contain at least 8 characters.",
+      );
     } else {
-      onUpdate(inputName, inputAge);
       setFormSubmit(true);
       setFormValidationFeedback("");
     }
@@ -67,36 +73,55 @@ export default function ParentCreateAccount({ onUpdate, childName }) {
           )}
           {!formSubmit && (
             <form className="parent-form" onSubmit={handleSubmit}>
-              <label htmlFor="childName">Child's Name</label>
+              <label htmlFor="email">
+                Email Address <span className="required-asterisk">*</span>
+              </label>{" "}
+              <input
+                className="parent-form-input"
+                type="email"
+                id="email"
+                autoComplete="email"
+                required
+                value={email}
+                onChange={(event) => setEmail(event.target.value)}
+                placeholder="example@email.com"
+              />
+              <label htmlFor="firstName">First Name <span className="required-asterisk">*</span></label>
               <input
                 className="parent-form-input"
                 type="text"
-                id="childName"
-                value={inputName}
-                onChange={(event) => setInputName(event.target.value)}
-                placeholder="Enter child's name"
+                id="firstName"
+                required
+                autoComplete="given-name"
+                value={firstName}
+                onChange={(event) => setFirstName(event.target.value)}
+                placeholder="Enter first name"
               />
-              <label htmlFor="childAge">Child's Age</label>
+              <label htmlFor="lastName">Last Name <span className="required-asterisk">*</span></label>
               <input
                 className="parent-form-input"
-                type="number"
-                id="childAge"
-                min="1"
-                max="17"
-                value={inputAge}
-                onChange={(event) => setInputAge(event.target.value)}
-                placeholder="Enter child's age"
+                type="text"
+                id="lastName"
+                required
+                autoComplete="family-name"
+                value={lastName}
+                onChange={(event) => setLastName(event.target.value)}
+                placeholder="Enter last name"
               />
-              <label htmlFor="creature-choice">Choose A Creature</label>
-              <select name="chooseCreature" id="creature-choice">
-                <option value="Unicorn">Unicorn</option>
-                <option value="Dragon">Dragon</option>
-                <option value="Llama">Llama</option>
-                <option value="Peacock">Peacock</option>
-                <option value="Pheonix">Pheonix</option>
-              </select>
-              <button className="save-button" type="submit">
-                Save
+              <label htmlFor="password">Password <span className="required-asterisk">*</span></label>
+              <input
+                className="parent-form-input"
+                type="password"
+                id="password"
+                autoComplete="new-password"
+                required
+                value={password}
+                onChange={(event) => setPassword(event.target.value)}
+                placeholder="Enter password"
+              />
+              <p className="required-note">* = required field</p>
+              <button className="create-account" type="submit">
+                Create Account
               </button>
             </form>
           )}
@@ -104,11 +129,15 @@ export default function ParentCreateAccount({ onUpdate, childName }) {
 
         {formSubmit && (
           <section className="form-feedback-section">
-            <div className="form-submit-feedback">{`Thank you! We hope ${childName} has so much fun exploring Little Creatures Feel Big!`}</div>
+            <div className="form-submit-feedback">{`Account created successfully!`}</div>
+            <Link className="login" to="/parent-login">
+              Login
+            </Link>
           </section>
         )}
 
-        <BackButton />
+        <ParentDashboardButton />
+        <HomeButton />
       </div>
     </main>
   );
