@@ -131,6 +131,34 @@ export default function About({ childName }) {
         >
           GitHub
         </a>
+        <a
+        href="https://www.linkedin.com/in/lyndsey-clarkson/"
+        target="_blank"
+        rel="noreferrer"
+        className="linkedIn-button"
+        >
+          LinkedIn
+        </a>
+        <a
+        href="https://lyndseydj1808.github.io/Lyndsey-Clarkson-Portfolio/"
+        target="_blank"
+        rel="noreferrer"
+        className="portfolio-button"
+        >
+          Portfolio
+        </a>
+        <div className="contact">
+          <h2 className="contact-header">Contact Me!</h2>
+          <p>If you have any questions about the game, this project, or me please email!</p>
+          <a
+          href="mailto: lyndseydj1808@gmail.com"
+          target="_blank"
+          rel="noreferrer"
+          className="email"
+          >
+            Email
+          </a>
+        </div>
       </div>
       <BackButton />
     </div>
