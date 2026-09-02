@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "./mainPages/Home";
 import About from "./mainPages/About";
-import ParentDashboard from "./mainPages/ParentDashboard";
+import ParentDashboard from "./parentPages/ParentDashboard";
 import FeelingFriends from "./games/FeelingFriends/FeelingFriends";
 import MainGames from "./mainPages/MainGames";
 import KindCreatures from "./games/KindCreatures/KindCreatures";

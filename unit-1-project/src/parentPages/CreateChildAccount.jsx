@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import ParentDashboard from "../mainPages/ParentDashboard";
+import ParentDashboard from "../parentPages/ParentDashboard";
 import HomeButton from "../components/HomeButton";
 import ParentDashboardButton from "../components/ParentDashboardButton";
 
