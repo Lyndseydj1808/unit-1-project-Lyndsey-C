@@ -31,7 +31,7 @@ export default function ParentCreateAccount() {
     <main className="parent-create-account-container">
       <div className="create-account">
         <header>
-          <h1>Hi Parents!</h1>
+          <h1 className="text-5xl font-bold text-red-500">Hi Parents!</h1>
           <h2> Welcome to Little Creatures Feel Big!</h2>
         </header>
         <section className="dashboard-description-section">
