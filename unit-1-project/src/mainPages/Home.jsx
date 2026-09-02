@@ -13,7 +13,7 @@ export default function Home() {
         <Link className="nav-button parent-dashboard" to="/parent-login">
           Parent Dashboard
         </Link>
-        <Link className="nav-button mini-games" to="/mini-games">
+        <Link className="nav-button lets-play" to="/choose-an-account">
           Let's Play!
         </Link>
         <Link className="nav-button about" to="/about">
