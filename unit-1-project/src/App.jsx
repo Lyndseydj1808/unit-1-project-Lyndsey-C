@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import { Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import About from "./pages/About";
-import ParentDashboard from "./pages/ParentDashboard";
+import Home from "./mainPages/Home";
+import About from "./mainPages/About";
+import ParentDashboard from "./mainPages/ParentDashboard";
 import FeelingFriends from "./games/FeelingFriends/FeelingFriends";
-import MainGames from "./pages/MainGames";
+import MainGames from "./mainPages/MainGames";
 import KindCreatures from "./games/KindCreatures/KindCreatures";
-import ParentLogin from "./pages/ParentLogin";
-import ParentCreateAccount from "./pages/ParentCreateAccount";
-import CreateChildAccount from "./pages/CreateChildAccount";
-import ChildAccounts from "./pages/ChildAccounts";
-import TimeLimit from "./pages/TimeLimit";
-import ChooseAnAccount from "./pages/ChooseAnAccount";
+import ParentLogin from "./parentPages/ParentLogin";
+import ParentCreateAccount from "./parentPages/ParentCreateAccount";
+import CreateChildAccount from "./parentPages/CreateChildAccount";
+import ChildAccounts from "./parentPages/ChildAccounts";
+import TimeLimit from "./parentPages/TimeLimit";
+import ChooseAnAccount from "./childPages/ChooseAnAccount";
 
 function App() {
   const [childName, setChildName] = useState("");
