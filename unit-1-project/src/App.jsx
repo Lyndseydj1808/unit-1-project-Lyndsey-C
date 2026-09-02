@@ -11,6 +11,7 @@ import ParentCreateAccount from "./pages/ParentCreateAccount";
 import CreateChildAccount from "./pages/CreateChildAccount";
 import ChildAccounts from "./pages/ChildAccounts";
 import TimeLimit from "./pages/TimeLimit";
+import ChooseAnAccount from "./pages/ChooseAnAccount";
 
 function App() {
   const [childName, setChildName] = useState("");
@@ -37,6 +38,7 @@ function App() {
         <Route path="/create-child-account" element={<CreateChildAccount onUpdateChild={onUpdateChild} childName={childName} />} />
         <Route path="/child-accounts" element={<ChildAccounts />} />
         <Route path="/time-limit" element={<TimeLimit />} />
+        <Route path="/choose-an-account" element={<ChooseAnAccount />} />
         <Route
           path="/mini-games"
           element={<MainGames childName={childName} />}
