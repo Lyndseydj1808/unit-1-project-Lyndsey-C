@@ -1,52 +1,59 @@
 import React from "react";
 import { useState } from "react";
-import ParentDashboard from "../mainPages/ParentDashboard";
 import HomeButton from "../components/HomeButton";
 import ParentDashboardButton from "../components/ParentDashboardButton";
+import { createChild } from "../services/childService";
+import { Link } from "react-router-dom";
+import ChildAccounts from "./ChildAccounts";
 
-
-export default function CreateChildAccount({ onUpdateChild, childName }) {
+export default function CreateChildAccount() {
   const [formSubmit, setFormSubmit] = useState(false);
-  const [inputName, setInputName] = useState("");
-  const [inputAge, setInputAge] = useState("");
+  const [name, setName] = useState("");
+  const [age, setAge] = useState("");
+  const [creatureChoice, setCreatureChoice] = useState("");
   const [formValidationFeedback, setFormValidationFeedback] = useState("");
-  const handleSubmit = (event) => {
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const age = Number(inputAge);
-    if (!inputName || !inputAge) {
+    const ageNumber = Number(age); //converts useState age (which is always stored as a string) to a number
+    if (!name || !age) {
       setFormValidationFeedback("⚠️ Please enter name and age.");
-    } else if (age >= 18 || age <= 0) {
+    } else if (ageNumber >= 18 || age <= 0) {
       setFormValidationFeedback("⚠️ Please enter a valid age.");
     } else {
-      onUpdateChild(inputName, inputAge);
-      setFormSubmit(true);
-      setFormValidationFeedback("");
+      try {
+        await createChild({ name, age: ageNumber, creatureChoice });
+        setFormSubmit(true);
+        setFormValidationFeedback("");
+      } catch (error) {
+        console.error(error);
+        setFormValidationFeedback(
+          "⚠️ Something went wrong creating your account. Please try again.",
+        );
+      }
     }
   };
   return (
-    <main className="parent-create-account-container">
-      <div className="create-account">
-        <header>
-          <h1>Make A Child Account</h1>
-          <h2> You can make a seperate account for each child.</h2>
-        </header>
+    <main className="create-child-account-container">
+      {formValidationFeedback && (
+        <div className="form-validation-feedback">{formValidationFeedback}</div>
+      )}
+      {!formSubmit && (
         <section className="form">
-          {/*form for parents to create account */}
-          {formValidationFeedback && (
-            <div className="form-validation-feedback">
-              {formValidationFeedback}
-            </div>
-          )}
-          {!formSubmit && (
+          <div className="create-account">
+            <header>
+              <h1>Make A Child Account</h1>
+              <h2> You can make a seperate account for each child.</h2>
+            </header>
             <form className="parent-form" onSubmit={handleSubmit}>
               <label htmlFor="childName">Child's Name</label>
               <input
                 className="parent-form-input"
                 type="text"
                 id="childName"
-                value={inputName}
-                onChange={(event) => setInputName(event.target.value)}
+                value={name}
+                onChange={(event) => setName(event.target.value)}
                 placeholder="Enter child's name"
               />
               <label htmlFor="childAge">Child's Age</label>
@@ -56,34 +63,43 @@ export default function CreateChildAccount({ onUpdateChild, childName }) {
                 id="childAge"
                 min="1"
                 max="17"
-                value={inputAge}
-                onChange={(event) => setInputAge(event.target.value)}
+                value={age}
+                onChange={(event) => setAge(event.target.value)}
                 placeholder="Enter child's age"
               />
               <label htmlFor="creature-choice">Choose A Creature</label>
-              <select name="chooseCreature" id="creature-choice">
-                <option value="Unicorn">Unicorn</option>
-                <option value="Dragon">Dragon</option>
-                <option value="Llama">Llama</option>
-                <option value="Peacock">Peacock</option>
-                <option value="Pheonix">Pheonix</option>
+              <select
+                name="chooseCreature"
+                id="creature-choice"
+                value={creatureChoice}
+                onChange={(event) => setCreatureChoice(event.target.value)}
+              >
+                <option value="">Select a creature</option>
+                <option value="Unicorn">🦄 Unicorn</option>
+                <option value="Dragon">🐉 Dragon</option>
+                <option value="Llama">🦙 Llama</option>
+                <option value="Peacock">🦚 Peacock</option>
+                <option value="Pheonix">🐦‍🔥 Phoenix</option>
               </select>
               <button className="save-button" type="submit">
                 Save
               </button>
             </form>
-          )}
+          </div>
         </section>
+      )}
 
-        {formSubmit && (
-          <section className="form-feedback-section">
-            <div className="form-submit-feedback">{`Thank you! We hope ${childName} has so much fun exploring Little Creatures Feel Big!`}</div>
-          </section>
-        )}
+      {formSubmit && (
+        <section className="form-feedback-section">
+          <div className="form-submit-feedback">{`Thank you! We hope ${name} has so much fun exploring Little Creatures Feel Big!`}</div>
+          <Link className="child-accounts" to="/child-accounts">
+            Child Accounts
+          </Link>
+        </section>
+      )}
 
-        <ParentDashboardButton/>
-        <HomeButton/>
-      </div>
+      <ParentDashboardButton />
+      <HomeButton />
     </main>
   );
 }

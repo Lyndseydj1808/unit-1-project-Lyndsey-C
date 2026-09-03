@@ -4,6 +4,7 @@ import "./ParentCreateAccount.css";
 import { Link } from "react-router-dom";
 import ParentDashboardButton from "../components/ParentDashboardButton";
 import HomeButton from "../components/HomeButton";
+import { createParent } from "../services/parentService";
 
 export default function ParentCreateAccount() {
   const [formSubmit, setFormSubmit] = useState(false);
@@ -13,7 +14,7 @@ export default function ParentCreateAccount() {
   const [password, setPassword] = useState("");
   const [formValidationFeedback, setFormValidationFeedback] = useState("");
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     if (!email || !firstName || !lastName || !password) {
@@ -23,9 +24,17 @@ export default function ParentCreateAccount() {
         "⚠️ Password must contain at least 8 characters.",
       );
     } else {
+      try {
+      await createParent({ email, password, firstName, lastName});
       setFormSubmit(true);
       setFormValidationFeedback("");
+    } catch (error) {
+      console.error(error);
+      setFormValidationFeedback(
+        "⚠️ Something went wrong creating your account. Please try again.",
+      );
     }
+  }
   };
   return (
     <main className="parent-create-account-container">
@@ -65,7 +74,6 @@ export default function ParentCreateAccount() {
           </p>
         </section>
         <section className="form">
-          {/*form for parents to create account */}
           {formValidationFeedback && (
             <div className="form-validation-feedback">
               {formValidationFeedback}
