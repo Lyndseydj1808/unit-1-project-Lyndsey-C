@@ -74,7 +74,6 @@ export default function ParentCreateAccount() {
           </p>
         </section>
         <section className="form">
-          {/*form for parents to create account */}
           {formValidationFeedback && (
             <div className="form-validation-feedback">
               {formValidationFeedback}

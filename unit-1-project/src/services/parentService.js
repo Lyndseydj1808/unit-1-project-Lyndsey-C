@@ -6,6 +6,7 @@ export async function createParent(parentData) {
         headers: {
             'Content-Type': 'application/json',
         },
+        credentials: 'include',
         body: JSON.stringify(parentData),
  });
 
@@ -17,20 +18,22 @@ export async function createParent(parentData) {
  return data;
 }
 
-export async function parentLogin(parentData) {
+export async function parentLogin(credentials) {
     const response = await fetch(`${API_URL}/parent/login`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify(parentData),
+        credentials: 'include',
+        body: JSON.stringify(credentials),
     });
 
     if (!response.ok) {
         throw new Error('⚠️ Email and/or Password is incorrect.')
     }
 
-    const loginData = await response.json();
-    return loginData;
+    const data = await response.json();
+    return data;
+    
 }
     

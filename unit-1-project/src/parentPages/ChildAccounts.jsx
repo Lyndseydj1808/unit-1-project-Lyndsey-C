@@ -4,12 +4,13 @@ export default function ChildAccounts() {
     const [childAccounts, setChildAccounts] = useState([]); 
     const [loading, setLoading] = useState(false);
     const [loadError, setLoadError] = useState("");
+    const [parentId, setParentId] = useState("");
 
     const loadChildAccounts = useCallback(async () => {
         setLoading(true);
         setLoadError("");
         try {
-                const data = await fetch('http://localhost:8080/{parentId}/childList')
+                const data = await fetch(`${API_URL}/{parentId}/childList`)
                     
 
                 setChildAccounts(Array.isArray(data) ? data : []);
