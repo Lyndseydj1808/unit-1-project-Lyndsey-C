@@ -4,7 +4,6 @@ import HomeButton from "../components/HomeButton";
 import ParentDashboardButton from "../components/ParentDashboardButton";
 import { createChild } from "../services/childService";
 import { Link } from "react-router-dom";
-import ChildAccounts from "./ChildAccounts";
 
 export default function CreateChildAccount() {
   const [formSubmit, setFormSubmit] = useState(false);
@@ -19,7 +18,7 @@ export default function CreateChildAccount() {
     const ageNumber = Number(age); //converts useState age (which is always stored as a string) to a number
     if (!name || !age) {
       setFormValidationFeedback("⚠️ Please enter name and age.");
-    } else if (ageNumber >= 18 || age <= 0) {
+    } else if (ageNumber >= 18 || ageNumber <= 0) {
       setFormValidationFeedback("⚠️ Please enter a valid age.");
     } else {
       try {
