@@ -1,4 +1,7 @@
 import React, { useCallback, useState, useEffect } from "react"
+import { API_URL } from "../services/apiConfig";
+import { loginParent } from "../services/parentService";
+import LoadingSpinner from "../components/LoadingSpinner";
 
 export default function ChildAccounts() {
     const [childAccounts, setChildAccounts] = useState([]); 
@@ -10,10 +13,18 @@ export default function ChildAccounts() {
         setLoading(true);
         setLoadError("");
         try {
-                const data = await fetch(`${API_URL}/{parentId}/childList`)
-                    
+                const response = await fetch(`${API_URL}/parent/childList`, {
+                    method:'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    credentials: 'include'
+                    });
 
-                setChildAccounts(Array.isArray(data) ? data : []);
+                    const data = await response.json()
+
+                    setChildAccounts(Array.isArray(data) ? data : []);
+                    console.log(data);
 
             }  catch (e) {
             setLoadError(e.message);
@@ -29,11 +40,13 @@ export default function ChildAccounts() {
 
     return (
         <main className="child-accounts-container">
-            {loading && <p>Loading...</p>}
+            {loading && <div className="loading-placeholder">
+                      <LoadingSpinner /></div>}
             {loadError && <p>Error: {loadError}</p>}
             {childAccounts.map((child) => (
                 <div key={child.childId}>
-                    <p>{child.name}, age {child.age}</p>
+                    <p>{child.name}</p>
+                    <p>Age: {child.age}</p>
                     <p>Stars: {child.starCount}</p>
                     <p>Creature: {child.creatureChoice}</p>
                 </div>
