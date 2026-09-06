@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import BackButton from "../components/BackButton";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { parentLogin } from "../services/parentService";
+import { loginParent } from "../services/parentService";
 
 import "./ParentLogin.css";
 
@@ -19,7 +19,7 @@ export default function ParentLogin() {
       setFeedback("⚠️ Please enter email and password.");
     } else {
       try {
-        await parentLogin({ email, password });
+        await loginParent({ email, password });
         navigate("/parent-dashboard")
       } catch (error) {
         console.error(error);

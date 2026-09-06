@@ -18,13 +18,13 @@ export async function createParent(parentData) {
  return data;
 }
 
-export async function parentLogin(credentials) {
+export async function loginParent(credentials) {
     const response = await fetch(`${API_URL}/parent/login`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
-        credentials: 'include',
+        credentials: 'include',//sends the session cookie
         body: JSON.stringify(credentials),
     });
 
